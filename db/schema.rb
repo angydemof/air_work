@@ -36,23 +36,19 @@ ActiveRecord::Schema.define(version: 2019_12_10_133045) do
     t.string "address"
     t.integer "capacity"
     t.integer "size"
-    t.bigint "photo_id"
+    t.string "photo"
+    t.string "type"
     t.bigint "user_id"
     t.boolean "wifi"
     t.boolean "coffee_machine"
     t.boolean "smoking_area"
+    t.boolean "pets_allowed"
+    t.boolean "printer"
+    t.boolean "kitchen"
+    t.boolean "terrace"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["photo_id"], name: "index_offices_on_photo_id"
     t.index ["user_id"], name: "index_offices_on_user_id"
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.string "photo_1"
-    t.string "photo_2"
-    t.string "photo_3"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -79,7 +75,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_133045) do
 
   add_foreign_key "bookings", "offices"
   add_foreign_key "bookings", "users"
-  add_foreign_key "offices", "photos"
   add_foreign_key "offices", "users"
   add_foreign_key "reviews", "bookings"
 end

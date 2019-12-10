@@ -1,2 +1,8 @@
 <h1>Offices#index</h1>
 <p>Find me in app/views/offices/index.html.erb</p>
+
+<% @offices.each do |office| %>
+  <%= office.name %>
+  <%= office.description %>
+  <%= cl_image_tag office.photo, height: 300, width: 400, crop: :fill  %>
+<% end %>

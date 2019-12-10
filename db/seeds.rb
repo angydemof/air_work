@@ -5,3 +5,60 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+raise 'No destroying the production databaseplease!' if Rails.env.production?
+
+puts "Emptying DB"
+
+Office.destroy_all
+User.destroy_all
+
+user1 = User.create!(email: 'bob@airwork.com', password: 'password')
+user2 = User.create!(email: 'john@airwork.com', password: 'password')
+user3 = User.create!(email: 'paul@airwork.com', password: 'password')
+
+
+5.times do |i|
+  url = 'https://res.cloudinary.com/dlo5xbrsn/image/upload/v1575990023/Air-work/andrew-neel-QLqNalPe0RA-unsplash_rtkomr.jpg'
+
+  office = Office.new(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.street_address,
+    description: Faker::Restaurant.name,
+    user: user1,
+    photo: url
+  )
+
+  office.save!
+  puts "#{office.name} created!"
+end
+
+5.times do |i|
+  url = 'https://res.cloudinary.com/dlo5xbrsn/image/upload/v1575990023/Air-work/jonathan-borba-v-JzyJAxcj0-unsplash_ovamna.jpg'
+
+  office = Office.new(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.street_address,
+    description: Faker::Restaurant.name,
+    user: user2,
+    photo: url
+  )
+
+  office.save!
+  puts "#{office.name} created!"
+end
+
+5.times do |i|
+  url = 'https://res.cloudinary.com/dlo5xbrsn/image/upload/v1575990022/Air-work/roberto-nickson-LKGwdezdqSk-unsplash_uyodqr.jpg'
+
+  office = Office.new(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.street_address,
+    description: Faker::Restaurant.name,
+    user: user3,
+    photo: url
+  )
+
+  office.save!
+  puts "#{office.name} created!"
+end
