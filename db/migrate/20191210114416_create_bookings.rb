@@ -9,7 +9,6 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.string :status
       t.string :payment_status
       t.integer :total_price
-      t.references :review, foreign_key: true
 
       t.timestamps
     end
