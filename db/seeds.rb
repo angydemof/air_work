@@ -13,9 +13,9 @@ puts "Emptying DB"
 Office.destroy_all
 User.destroy_all
 
-user1 = User.create!(email: 'bob@airwork.com', password: 'password')
-user2 = User.create!(email: 'john@airwork.com', password: 'password')
-user3 = User.create!(email: 'paul@airwork.com', password: 'password')
+user1 = User.create!(email: 'bob@airwork.com', password: 'password', avatar: 'https://kitt.lewagon.com/placeholder/users/arthur-littm')
+user2 = User.create!(email: 'john@airwork.com', password: 'password', avatar: 'https://kitt.lewagon.com/placeholder/users/sarahlafer')
+user3 = User.create!(email: 'paul@airwork.com', password: 'password', avatar: 'https://kitt.lewagon.com/placeholder/users/cveneziani')
 
 
 5.times do |i|
