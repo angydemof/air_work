@@ -1,6 +1,5 @@
 class Office < ApplicationRecord
-  belongs_to :photo
-  has_one :user
+  belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings, dependent: :destroy
 end
