@@ -10,7 +10,7 @@ class CreateOffices < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.boolean :wifi
       t.boolean :coffee_machine
-      t.boolean :somking_area
+      t.boolean :smoking_area
 
       t.timestamps
     end
