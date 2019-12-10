@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_133045) do
     t.bigint "user_id"
     t.boolean "wifi"
     t.boolean "coffee_machine"
-    t.boolean "somking_area"
+    t.boolean "smoking_area"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["photo_id"], name: "index_offices_on_photo_id"
