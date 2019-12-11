@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_112327) do
     t.date "start_date"
     t.date "end_date"
     t.integer "number_of_people"
-    t.string "status"
+    t.string "status", default: "Pending"
     t.string "payment_status"
     t.integer "total_price"
     t.datetime "created_at", null: false

@@ -7,21 +7,24 @@
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 250px;
   width: 100%;
   object-fit: cover;
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
-  margin: 0;
+  margin-left: 0px;
+  padding-bottom: 5px;
+  font-family: "Roboto", sans-serif;
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 16px;
   opacity: .7;
   margin: 0;
+  font-family: "Helvetica"
 }
 
 
@@ -31,11 +34,12 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  height: 100px;
 }
 
 .card-trip-infos .card-trip-user {
   position: absolute;
   right: 16px;
   top: -20px;
-  width: 40px;
+  width: 60px;
 }
