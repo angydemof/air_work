@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: :index
 
-  resources :bookings, only: %i[] do
+  resources :bookings, only: %i[show] do
     resources :reviews, only: %i[new create]
     member do
       get 'accept'
@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :offices, only: %i[index show] do
-    resources :bookings, only: %i[index show new create]
+    resources :bookings, only: %i[new create]
   end
 end

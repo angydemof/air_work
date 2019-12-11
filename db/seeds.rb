@@ -28,7 +28,7 @@ user3 = User.create!(email: 'paul@airwork.com', password: 'password', avatar: 'h
     user: user1,
     photo: url
   )
-
+  Booking.create(office: office, user: user2)
   office.save!
   puts "#{office.name} created!"
 end
