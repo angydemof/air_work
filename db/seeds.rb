@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-raise 'No destroying the production databaseplease!' if Rails.env.production?
+#raise 'No destroying the production databaseplease!' if Rails.env.production?
 
 puts "Emptying DB"
 
