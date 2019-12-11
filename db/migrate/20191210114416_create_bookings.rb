@@ -6,7 +6,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.date :start_date
       t.date :end_date
       t.integer :number_of_people
-      t.string :status
+      t.string :status, default: 'Pending'
       t.string :payment_status
       t.integer :total_price
 
