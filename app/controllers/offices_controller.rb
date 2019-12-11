@@ -1,7 +1,11 @@
 class OfficesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @offices = Office.all
+    if params[:query].present?
+      @offices = Office.where("address ILIKE ?", "%#{params[:query]}%")
+    else
+      @offices = Office.all
+    end
   end
 
   def show
