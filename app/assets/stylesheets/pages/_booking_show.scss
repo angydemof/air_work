@@ -1,0 +1,29 @@
+
+
+.list-group-item a {
+  color: black;
+}
+
+.list-group-item i {
+  color: $green;
+  text-decoration: none;
+  font-size: 22px;
+  margin-right: 5px;
+  padding: 8px;
+}
+
+.booking-card {
+  margin: 10px auto;
+}
+
+.card-body i {
+  font-size: 36px;
+  padding: 10px;
+  &:hover {
+    opacity: .7;
+  }
+}
+
+.reject-icon i {
+
+}

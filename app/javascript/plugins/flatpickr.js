@@ -5,6 +5,7 @@ import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 const initFlatpickr = () => {
+  console.log("hiiiii");
   flatpickr('#start_date', {
     altInput: true,
     minDate: 'today',

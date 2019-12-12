@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="banner-container">
+  <div class="banner-text container mb-3">
+    <h2>The office you will not want to leave</h2>
+    <p>Find an affordable & nearby space to work and meet other professionals</p>
+    <%= link_to offices_path do %>
+    <div class='btn-ghost-banner'>Browse offices</div>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="mt-3">
+    <%= render 'shared/search'%>
+  </div>
+  <h3 class="mt-3">Top offices in your city</h3 class="mt-3">
+    <div class="row">
+      <% @offices.each do |office| %>
+      <div class="col-6 card-landing">
+        <%= link_to office_path(office) do %>
+        <div class="card-minimal">
+          <%= cl_image_tag office.photo %>
+          <div class="card-minimal-infos">
+            <div>
+              <h2><%= office.name %></h2>
+              <p><%= office.description %></p>
+            </div>
+            <h2 class="card-minimal-pricing">€15</h2>
+            <%= image_tag office.user.avatar, class: "card-minimal-user avatar-bordered" %>
+          </div>
+        </div>
+
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+
+  </div>

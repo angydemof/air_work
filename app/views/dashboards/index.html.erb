@@ -1,6 +1,6 @@
 
 <div class="container mt-5">
-  <h1>Welcome <%= current_user.first_name %>,</h1>
+  <h1><%= image_tag current_user.avatar, class:"avatar mr-3" %>Welcome <%= current_user.first_name %>,</h1>
   <ul class="nav nav-tabs mt-5">
     <li class="nav-item">
       <a class="nav-link active" href="#1a" data-toggle="tab">My bookings</a>
@@ -17,35 +17,8 @@
       <% if current_user.bookings == [] %>
       <h2>No bookings made so far...</h2>
       <% else %>
-      <div class="card-dashboard">
-        <%= cl_image_tag @booking.office.photo %>
-        <div class="card-dashboard-infos">
-          <div class="d-flex">
-            <div class="card-left">
-          <h2>Booking id: <%= @booking.id %></h2>
-          <h2>Office: <%= @booking.office.name %></h2>
-          <h2>Location: <%= @booking.office.address %></h2>
-            </div>
-            <div class="card-right">
-              <h3>Edit/delete</h3>
-              <% if @booking.status == "closed" && @booking.reviews == [] %>
-              <%= link_to '<h3>Add review</h3>'.html_safe, new_booking_review_path(@booking) %>
-              <% elsif @booking.status == "closed" && @booking.reviews != [] %>
-              <h3><%= @review.rating %></h3>
-              <% else %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-
-    <div class="tab-pane" id="2a">
-      <% if @bookings_received == [] %>
-      <h2>No booking request received so far...</h2>
-      <% else %>
-      <% @bookings_received.each do |booking| %>
+      <% current_user.bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
       <div class="card-dashboard">
         <%= cl_image_tag booking.office.photo %>
         <div class="card-dashboard-infos">
@@ -56,12 +29,44 @@
               <h2>Location: <%= booking.office.address %></h2>
             </div>
             <div class="card-right">
-              <h3>Booking status: <%= booking.status %>  </h3>
+              <h3>Edit/delete</h3>
+              <% if booking.status == "closed" && booking.reviews == [] %>
+               <%= link_to '<h3>Add review</h3>'.html_safe, new_booking_review_path(booking) %>
+              <% elsif booking.status == "closed" && booking.reviews != [] %>
+                <% booking.reviews.each do |review| %>
+                  <h3><%= review.rating %></h3>
+                 <% end %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
       <% end %>
+      <% end %>
+      <% end %>
+    </div>
+
+    <div class="tab-pane" id="2a">
+      <% if @bookings_received == [] %>
+        <h2>No booking request received so far...</h2>
+        <% else %>
+        <% @bookings_received.each do |booking| %>
+          <div class="card-dashboard">
+            <%= cl_image_tag booking.office.photo %>
+            <div class="card-dashboard-infos">
+              <div class="d-flex">
+                <div class="card-left">
+                  <h2>Booking id: <%= booking.id %></h2>
+                  <h2>Office: <%= booking.office.name %></h2>
+                  <h2>Location: <%= booking.office.address %></h2>
+                </div>
+                <div class="card-right">
+                  <h3>Booking status: <%= booking.status %>  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
@@ -69,21 +74,23 @@
       <% if @offices == [] %>
       <h2>No office submitted so far...</h2>
       <% else %>
-      <div class="card-dashboard">
-        <%= cl_image_tag @office.photo %>
-        <div class="card-dashboard-infos">
-          <div class="d-flex">
-            <div class="card-left">
-              <h2>Office id: <%= @office.id %></h2>
-              <h2>Office name: <%= @office.name %></h2>
-              <h2>Location: <%= @office.address %></h2>
-            </div>
-            <div class="card-right">
-              <h3>Edit/Delete</h3>
+      <% @offices.each do |office| %>
+        <div class="card-dashboard">
+          <%= cl_image_tag office.photo %>
+          <div class="card-dashboard-infos">
+            <div class="d-flex">
+              <div class="card-left">
+                <h2>Office id: <%= office.id %></h2>
+                <h2>Office name: <%= office.name %></h2>
+                <h2>Location: <%= office.address %></h2>
+              </div>
+              <div class="card-right">
+                <h3>Edit/Delete</h3>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
       <% end %>
     </div>
   </div>
