@@ -1,2 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="banner-container">
+</div>
+<div class="container">
+  <div class="mt-3">
+    <%= render 'shared/search'%>
+  </div>
+  <% @offices.each do |office| %>
+  <div class="row">
+    <%= link_to office_path(office) do %>
+  <div class="card-trip col-sm-6">
+    <%= cl_image_tag office.photo %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= office.name %></h2>
+        <p><%= office.description %></p>
+      </div>
+      <h2 class="card-trip-pricing">€15</h2>
+      <%= image_tag office.user.avatar, class: "card-trip-user avatar-bordered" %>
+    </div>
+  </div>
+  <% end %>
+
+  </div>
+  <% end %>
+</div>
