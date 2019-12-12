@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :bookings, only: %i[show] do
     resources :reviews, only: %i[new create]
+    resources :payments, only: :new
     member do
       get 'accept'
       get 'reject'

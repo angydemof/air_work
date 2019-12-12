@@ -8,8 +8,6 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.integer :number_of_people
       t.string :status, default: 'Pending'
       t.string :payment_status
-      t.integer :total_price
-
       t.timestamps
     end
   end

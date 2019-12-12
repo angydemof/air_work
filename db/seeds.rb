@@ -10,6 +10,7 @@
 
 puts "Emptying DB"
 
+Booking.destroy_all
 Office.destroy_all
 User.destroy_all
 
@@ -25,6 +26,7 @@ user3 = User.create!(email: 'paul@airwork.com', password: 'password', avatar: 'h
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
     description: Faker::Restaurant.name,
+    price: rand(15),
     user: user1,
     photo: url
   )
@@ -41,6 +43,7 @@ end
     address: Faker::Address.street_address,
     description: Faker::Restaurant.name,
     user: user2,
+    price: rand(15),
     photo: url
   )
 
@@ -56,6 +59,7 @@ end
     address: Faker::Address.street_address,
     description: Faker::Restaurant.name,
     user: user3,
+    price: rand(15),
     photo: url
   )
 
