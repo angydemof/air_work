@@ -10,5 +10,6 @@ class DashboardsController < ApplicationController
         @bookings_received << booking
       end
     end
+    @booking.reviews.each { |review| @review = review }
   end
 end
