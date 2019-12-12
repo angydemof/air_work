@@ -1,2 +1,35 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="container">
+  <div class="card booking-card" style="max-width: 56rem;">
+    <div class="card-header">
+      <h2 style="font-size: 26px;">Booking Details</h2>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <%= link_to office_path(@booking.office) do %>
+          <div class="card-product">
+            <div class="card-product-infos">
+              <h2 style="font-size: 22px;"><%= @booking.office.name %></h2>
+              <p><%= @booking.office.description%></p>
+
+            </div>
+
+
+          </div>
+        <% end %>
+      </li>
+      <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking id: <%= @booking.id %></li>
+      <li class="list-group-item d-inline-flex justify-content-between align-items-center">
+        <div>
+          <i class="fas fa-user"></i>Guest: <%= @booking.user.email %>
+        </div>
+      </li>
+      <li class="list-group-item"><i class="fas fa-map-marker-alt"></i>Location: <%= @booking.office.address %></li>
+      <li class="list-group-item"><i class="fas fa-users"></i>No. of guests: <%= @booking.number_of_people %></li>
+      <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking status: <%= @booking.status %></li>
+      <li class="list-group-item"><i class="far fa-calendar-alt"></i>Checkin-date: <%= @booking.start_date %> ---- Checkout-date: <%= @booking.end_date %></li>
+      <li class="list-group-item"><i class="fas fa-euro-sign"></i>Total Price: <%= @booking.total_price %></li>
+    </ul>
+
+  </div>
+
+</div>
