@@ -28,8 +28,11 @@
             </div>
             <div class="card-right">
               <h3>Edit/delete</h3>
-              <% if @booking.status == "closed" %>
-              <h3>Add review</h3>
+              <% if @booking.status == "closed" && @booking.reviews == [] %>
+              <%= link_to '<h3>Add review</h3>'.html_safe, new_booking_review_path(@booking) %>
+              <% elsif @booking.status == "closed" && @booking.reviews != [] %>
+              <h3><%= @review.rating %></h3>
+              <% else %>
               <% end %>
             </div>
           </div>
