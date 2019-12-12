@@ -11,7 +11,7 @@
                 <h2 style="font-size: 22px;"><%= @booking.office.name %></h2>
                 <p><%= @booking.office.description%></p>
               </div>
-              <div>
+              <div align="right">
                 <%= image_tag @booking.office.photo, class: 'img-booking-show text-right' %>
 
               </div>
@@ -28,9 +28,26 @@
       <li class="list-group-item"><i class="fas fa-users"></i>No. of guests: <%= @booking.number_of_people %></li>
       <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking status: <%= @booking.status %></li>
       <li class="list-group-item"><i class="far fa-calendar-alt"></i>Checkin-date: <%= @booking.start_date %> ---- Checkout-date: <%= @booking.end_date %></li>
-      <li class="list-group-item"><i class="fas fa-euro-sign"></i>Total Price: <%= @booking.total_price %></li>
+      <li class="list-group-item"><i class="fas fa-euro-sign"></i>Total Price: <%= @booking.amount %></li>
     </ul>
 
   </div>
 
+</div>
+
+
+<div class="container">
+  <div class="row py-4">
+    <div class="col-md-3"><%= image_tag @booking.office.photo, width: '100%' %></div>
+    <div class="col">
+      <h1>Booking #<%= @booking.id %> <small><span class="badge badge-primary"><%= @booking.payment_status %></span></small></h1>
+      <ul class="list-unstyled">
+        <li><strong>ISSUED ON</strong> <%= @booking.created_at.to_date %></li>
+        <li><strong>OFFICE</strong> <%= @booking.office.name %></li>
+        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @booking.amount %></li>
+        </li>
+      </ul>
+      <p>Payment confirmation sent to your email. Thank you!</p>
+    </div>
+  </div>
 </div>

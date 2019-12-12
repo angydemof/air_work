@@ -26,11 +26,11 @@ class BookingsController < ApplicationController
       payment_method_types: ['card'],
         line_items: [{ name: office.name,
                        images: [office.photo],
-                       amount: booking.amount,
+                       amount: booking.amount_cents,
                        currency: 'eur',
                        quantity: 1 }],
-      success_url: order_url(order),
-      cancel_url: order_url(order)
+      success_url: booking_url(booking),
+      cancel_url: booking_url(booking)
     )
 
     booking.update(checkout_session_id: session.id)
@@ -56,7 +56,7 @@ class BookingsController < ApplicationController
 
   def compute_price(booking)
     number_of_days = booking.end_date - booking.start_date
-    number_of_days * booking.garden.price
+    number_of_days * booking.office.price
   end
 
   def find_booking
