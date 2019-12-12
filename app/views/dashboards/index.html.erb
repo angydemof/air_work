@@ -29,7 +29,7 @@
             <div class="card-right">
               <h3>Edit/delete</h3>
               <% if @booking.status == "closed" %>
-              <h3>Add review</h3>
+              <%= link_to '<h3>Add review</h3>'.html_safe, new_booking_review_path(@booking) %>
               <% end %>
             </div>
           </div>
