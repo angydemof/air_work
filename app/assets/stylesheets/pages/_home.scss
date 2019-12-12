@@ -1,4 +1,17 @@
 // Specific CSS for your home-page
+#banner-container {
+  background-image: url(banner-pic.jpg);
+  height: 91vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom 1px right 0px;
+}
+
+.banner-text {
+  padding: 432px 6px;
+  color: white;
+  font-weight: bold;
+}
 .sign-in-image {
 
   .myform-outline {
