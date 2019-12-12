@@ -6,14 +6,15 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <%= link_to office_path(@booking.office) do %>
-          <div class="card-product">
-            <div class="card-product-infos">
-              <h2 style="font-size: 22px;"><%= @booking.office.name %></h2>
-              <p><%= @booking.office.description%></p>
+          <div class="card-product d-flex justify-content-between w-100">
+              <div>
+                <h2 style="font-size: 22px;"><%= @booking.office.name %></h2>
+                <p><%= @booking.office.description%></p>
+              </div>
+              <div>
+                <%= image_tag @booking.office.photo, class: 'img-booking-show text-right' %>
 
-            </div>
-
-
+              </div>
           </div>
         <% end %>
       </li>
