@@ -18,6 +18,7 @@
       <h2>No bookings made so far...</h2>
       <% else %>
       <% current_user.bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
       <div class="card-dashboard">
         <%= cl_image_tag booking.office.photo %>
         <div class="card-dashboard-infos">
@@ -40,6 +41,7 @@
           </div>
         </div>
       </div>
+      <% end %>
       <% end %>
       <% end %>
     </div>
