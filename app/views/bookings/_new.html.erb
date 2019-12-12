@@ -1,7 +1,8 @@
 <%= simple_form_for ([office, booking]) do |b| %>
-<%= b.input :start_date, as: :text, class: "booking-date", id: "calendar" %>
-<%#= b.input :end_date, as: :date, class: "booking-date" %>
-<%= b.input :number_of_people %>
-<div align="center"><%#= b.submit "Reserve", class:"btn-ghost" %>
-</div>
+  <%= b.input :start_date, as: :string,  input_html: {id: "start_date"} %>
+  <%= b.input :end_date, as: :string,  input_html: {id: "end_date"} %>
+  <%= b.input :number_of_people %>
+  <div align="center"><%#= b.submit "Reserve", class:"btn-ghost" %>
+  </div>
 <% end %>
+
