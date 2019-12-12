@@ -3,11 +3,10 @@ class OfficesController < ApplicationController
   def index
     if params[:query].present?
       @offices = Office.where("address ILIKE ?", "%#{params[:query]}%")
-      @offices.geocoded
     else
-      @offices = Office.geocoded
+      @offices = Office.all
     end
-
+    @offices.geocoded
     @markers = @offices.map do |office|
       {
         lat: office.latitude,
