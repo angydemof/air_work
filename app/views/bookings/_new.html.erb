@@ -1,0 +1,7 @@
+<%= simple_form_for ([office, booking]) do |b| %>
+<%= b.input :start_date, as: :text, class: "booking-date", id: "calendar" %>
+<%#= b.input :end_date, as: :date, class: "booking-date" %>
+<%= b.input :number_of_people %>
+<div align="center"><%#= b.submit "Reserve", class:"btn-ghost" %>
+</div>
+<% end %>

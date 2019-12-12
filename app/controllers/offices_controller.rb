@@ -25,5 +25,7 @@ class OfficesController < ApplicationController
         lng: @office.longitude,
         infoWindow: render_to_string(partial: 'info_window', locals: { office: @office })
       }]
+
+    @booking = Booking.new
   end
 end
