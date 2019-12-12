@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 #banner-container {
-  background-image: url(banner-pic.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), asset-url('banner-pic.jpg');
   height: 91vh;
   background-size: cover;
   background-repeat: no-repeat;
