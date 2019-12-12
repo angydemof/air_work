@@ -84,11 +84,14 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
+  <br>
+  <div class="show-flatpickr">
+  <h3>Date</h3>
 
+<%= render "bookings/new", office: @office, booking: @booking%>
 
-
+  <%= link_to "Reserve", booking_path, class: "btn-ghost" %></a>
 </div>
 
 
-
-<%= render "bookings/new", office: @office, booking: Booking.new %>
+</div>
