@@ -28,9 +28,9 @@
               <div class="card-trip-infos">
                 <div>
                   <h2><%= office.name %></h2>
-                  <p><%= office.description %></p>
+                  <p><%= office.description.truncate_words(6) %></p>
                 </div>
-                <h2 class="card-trip-pricing">€15</h2>
+                <strong><p class="card-trip-pricing"><%= humanized_money_with_symbol office.price %>/day</p></strong>
                 <%= image_tag office.user.avatar, class: "card-trip-user avatar-bordered" %>
               </div>
             </div>
