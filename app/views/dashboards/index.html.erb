@@ -33,12 +33,12 @@
               <i class="fas fa-trash-alt delete"></i>
               <% end %>
               <% if booking.status == "closed" && booking.reviews == [] %>
-              <%= link_to '<h3>Add review</h3>'.html_safe, new_booking_review_path(booking) %>
+              <%= link_to '<p>Add review</p>'.html_safe, new_booking_review_path(booking), style: 'color: #11BF98; font-weight: bold' %>
               <% elsif booking.status == "closed" && booking.reviews != [] %>
               <% booking.reviews.each do |review| %>
               <div class="d-flex">
                 <div>
-                  <h3 class="rating"><%= review.rating %>/5</h3>
+                  <h4 class="rating"><%= review.rating %>/5</h4>
                 </div>
               </div>
               <% end %>
