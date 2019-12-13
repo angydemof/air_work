@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_12_12_164414) do
     t.integer "number_of_people"
     t.string "status", default: "Pending"
     t.string "payment_status"
+    t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "checkout_session_id"
