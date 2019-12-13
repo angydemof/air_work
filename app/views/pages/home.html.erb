@@ -19,9 +19,9 @@
         <div class="card-minimal">
           <%= cl_image_tag office.photo %>
           <div class="card-minimal-infos">
-            <div>
+            <div class="card-minimal-text">
               <h2><%= office.name %></h2>
-              <p><%= office.description %></p>
+              <p><%= office.description.first(12) %></p>
             </div>
             <h2 class="card-minimal-pricing">€15</h2>
             <%= image_tag office.user.avatar, class: "card-minimal-user avatar-bordered" %>
