@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
 
     if @review.save
-      redirect_to office_path(@booking.office)
+      redirect_to dashboards_path
     else
       render :new
     end
