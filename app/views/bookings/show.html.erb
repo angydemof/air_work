@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card booking-card" style="max-width: 56rem;">
     <div class="card-header">
-      <h2 style="font-size: 26px;">Booking Details</h2>
+      <h2 style="font-size: 24px;">Booking Details</h2>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
@@ -17,29 +17,33 @@
           </div>
         <% end %>
       </li>
-      <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking id: <p> <%= @booking.id %></p></li>
-      <li class="list-group-item d-inline-flex justify-content-between align-items-center">
-        <div>
-          <i class="fas fa-user"></i>Guest: <p> <%= @booking.user.email %> </p>
-        </div>
-      </li>
-      <li class="list-group-item"><i class="fas fa-map-marker-alt"></i>Location: <p> <%= @booking.office.address %> </p></li>
-      <li class="list-group-item"><i class="fas fa-users"></i>No. of guests: <p> <%= @booking.number_of_people %></p></li>
-      <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking status: <p> <%= @booking.status %></p></li>
-      <li class="list-group-item"><i class="fas fa-hashtag"></i>Payment status: <p> <%= @booking.status %></p></li>
-      <li class="list-group-item"><i class="far fa-calendar-alt"></i>Checkin-date: <p> <%= @booking.start_date %> </p> ---- Checkout-date: <p> <%= @booking.end_date %></p></li>
-      <li class="list-group-item d-inline-flex justify-content-between align-items-center">
-        <div>
-          <i class="fas fa-euro-sign"></i>Total Price: <p> <%= humanized_money_with_symbol @booking.amount %>
-        </div>
+      </div>
+      <div class="card details-card">
+
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-hashtag"></i><u> Booking id:</u></div> <p> <%= @booking.id %></p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-user "></i><u>Guest:</u></div><p> <%= @booking.user.email %></p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-map-marker-alt"></i><u>Location: </u></div><p><%= @booking.office.address %> </p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-users"></i><u>No. of guests:</u></div><p> <%= @booking.number_of_people %></p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-hashtag"></i><u>Booking status: </u></div><p> <%= @booking.status %></p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-hashtag"></i><u>Payment status:</u> </div><p> <%= @booking.status %></p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="far fa-calendar-alt"></i><u>Checkin-date:</u></div> <p> <%= @booking.start_date %> </p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="far fa-calendar-alt"></i><u>Checkout-date: </u></div><p> <%= @booking.end_date %></p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-euro-sign"></i><u>Total Price: </u></div><p> <%= humanized_money_with_symbol @booking.amount %></p>
+
         <div>
            <strong><p> <%= @booking.payment_status%></p> </strong>
         </div>
       </li>
-      <li class="list-group-item">Invoice Issued On: <p> <%= @booking.created_at.to_date %></p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-file-invoice"></i><u>Invoice Issued On:</u> </div><p> <%= @booking.created_at.to_date %></p></li>
 
     </ul>
-
-    <p>ADD THANK YOU TEXT WITH DASHBOARD PATH</p>
+<div style="font-size: 18px;" class="text-center px-2">
+    <p>Thank you for your booking, you will receive an email soon..</p>
   </div>
+  <div align="center" class="mb-2">
+    <%= link_to "Go to dashboard", dashboards_path, style:"color: #11BF98"  %>
+  </div>
+
 </div>
+
+
