@@ -29,7 +29,9 @@
               <h2>Location: <%= booking.office.address %></h2>
             </div>
             <div class="card-right">
-              <i class="fas fa-pencil-alt"></i><i class="fas fa-trash-alt"></i>
+              <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure you wish to delete? (if less than 48h before your stay, you will not be refunded...)" } do %>
+              <i class="fas fa-trash-alt"></i>
+              <% end %>
               <% if booking.status == "closed" && booking.reviews == [] %>
               <%= link_to '<h3>Add review</h3>'.html_safe, new_booking_review_path(booking) %>
               <% elsif booking.status == "closed" && booking.reviews != [] %>

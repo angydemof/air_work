@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: %i[show accept reject]
+  before_action :find_booking, only: %i[show accept reject destroy]
 
   def index
     @bookings = Booking.all
@@ -49,6 +49,11 @@ class BookingsController < ApplicationController
 
   def reject
     @booking.update(status: 'Rejected')
+    redirect_to dashboards_path
+  end
+
+  def destroy
+    @booking.delete
     redirect_to dashboards_path
   end
 
