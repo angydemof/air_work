@@ -20,9 +20,9 @@
           <div class="card-minimal-infos">
             <div class="card-minimal-text">
               <h2><%= office.name %></h2>
-              <p><%= office.description.first(12) %></p>
+              <p><%= office.description.truncate_words(3) %></p>
             </div>
-            <h2 class="card-minimal-pricing">€15</h2>
+            <h2 class="card-minimal-pricing"><%= humanized_money_with_symbol office.price %></h2>
             <%= image_tag office.user.avatar, class: "card-minimal-user avatar-bordered" %>
           </div>
         </div>

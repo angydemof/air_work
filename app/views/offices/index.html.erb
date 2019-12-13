@@ -27,8 +27,8 @@
               <%= cl_image_tag office.photo %>
               <div class="card-trip-infos">
                 <div>
-                  <h2><%= office.name %></h2>
-                  <p><%= office.description.truncate_words(6) %></p>
+                  <h2><%= office.name.truncate_words(4) %></h2>
+                  <p><%= office.description.truncate_words(5) %></p>
                 </div>
                 <strong><p class="card-trip-pricing"><%= humanized_money_with_symbol office.price %>/day</p></strong>
                 <%= image_tag office.user.avatar, class: "card-trip-user avatar-bordered" %>
