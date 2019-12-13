@@ -1,10 +1,15 @@
-<div class="container">
+<div class="container mt-3">
+  <h2>Checkout summary</h2>
   <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @booking.office.photo, width: '100%' %></div>
+    <div><%= image_tag @booking.office.photo, width: '80%' %></div>
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Payment for <strong><%= @booking.office.name %></strong> for <strong><%= humanized_money_with_symbol @booking.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+      <ul class="list-group my-3">
+        <li class="list-group-item"><strong>Office: </strong><%= @booking.office.name %></li>
+        <li class="list-group-item"><strong>Amount: </strong><%= humanized_money_with_symbol @booking.amount %></li>
+        <li class="list-group-item"><strong>Booking Status: </strong><%= @booking.status %></li>
+        <li class="list-group-item"></li>
+      </ul>
+      <button id="pay" class="btn-ghost" align="center">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');

@@ -13,7 +13,6 @@
               </div>
               <div align="right">
                 <%= image_tag @booking.office.photo, class: 'img-booking-show text-right' %>
-
               </div>
           </div>
         <% end %>
@@ -27,27 +26,20 @@
       <li class="list-group-item"><i class="fas fa-map-marker-alt"></i>Location: <%= @booking.office.address %></li>
       <li class="list-group-item"><i class="fas fa-users"></i>No. of guests: <%= @booking.number_of_people %></li>
       <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking status: <%= @booking.status %></li>
+      <li class="list-group-item"><i class="fas fa-hashtag"></i>Payment status: <%= @booking.status %></li>
       <li class="list-group-item"><i class="far fa-calendar-alt"></i>Checkin-date: <%= @booking.start_date %> ---- Checkout-date: <%= @booking.end_date %></li>
-      <li class="list-group-item"><i class="fas fa-euro-sign"></i>Total Price: <%= @booking.amount %></li>
+      <li class="list-group-item d-inline-flex justify-content-between align-items-center">
+        <div>
+          <i class="fas fa-euro-sign"></i>Total Price: <%= humanized_money_with_symbol @booking.amount %>
+        </div>
+        <div>
+           <strong><%= @booking.payment_status%></strong>
+        </div>
+      </li>
+      <li class="list-group-item">Invoice Issued On: <%= @booking.created_at.to_date %></li>
+
     </ul>
 
-  </div>
-
-</div>
-
-
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @booking.office.photo, width: '100%' %></div>
-    <div class="col">
-      <h1>Booking #<%= @booking.id %> <small><span class="badge badge-primary"><%= @booking.payment_status %></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @booking.created_at.to_date %></li>
-        <li><strong>OFFICE</strong> <%= @booking.office.name %></li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @booking.amount %></li>
-        </li>
-      </ul>
-      <p>Payment confirmation sent to your email. Thank you!</p>
-    </div>
+    <p>ADD THANK YOU TEXT WITH DASHBOARD PATH</p>
   </div>
 </div>
