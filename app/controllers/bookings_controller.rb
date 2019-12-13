@@ -55,8 +55,12 @@ class BookingsController < ApplicationController
   private
 
   def compute_price(booking)
-    number_of_days = booking.end_date - booking.start_date
-    number_of_days * booking.office.price
+    if booking.end_date
+      number_of_days = booking.end_date - booking.start_date
+      number_of_days * booking.office.price
+    else
+      booking.office.price
+    end
   end
 
   def find_booking
