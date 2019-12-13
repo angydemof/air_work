@@ -1,5 +1,4 @@
 
-
 .list-group-item a {
   color: black;
 }
@@ -13,7 +12,8 @@
 }
 
 .booking-card {
-  margin: 10px auto;
+  margin: 0px auto;
+  border-radius: 10px;
 }
 
 .card-body i {
@@ -27,3 +27,25 @@
 .reject-icon i {
 
 }
+
+.img-booking-show {
+  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+}
+
+.details-card {
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: none;
+
+}
+
+.details-card u {
+  width: 40px;
+}
+
+.list-group-item p {
+  margin-bottom: 0;
+}
+
