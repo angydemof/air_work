@@ -26,3 +26,27 @@
 .card-minimal-text {
   height: 66px;
 }
+
+.rating {
+  position: absolute;
+  color: $green;
+  bottom: -9px;
+  left: 343px;
+}
+
+.delete {
+  position: absolute;
+  color: $green;
+  top: 10px;
+  right: 10px;
+}
+
+
+.edit {
+  color: $green;
+}
+
+.nav-link {
+  font-size: 12px;
+  font-weight: bold;
+}
