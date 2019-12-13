@@ -1,10 +1,14 @@
 <div class="container">
-  <div class="form-content mt-5">
+  <div class="form-content">
     <%= simple_form_for [@booking, @review] do |b| %>
     <%= b.input :content, as: :text %>
     <%= b.input :rating, collection: 0..5 %>
-    <div align="center"><%= b.submit "Submit now" %>
+    <div align="center"><%= b.submit "Rate now", class: "btn-ghost mt-4" %>
     </div>
   </div>
   <% end %>
+  <div class="illustration">
+
+<%= image_tag 'review-illustration.svg' %>
+  </div>
 </div>

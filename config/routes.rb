@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: :index
 
-  resources :bookings, only: %i[show] do
+  resources :bookings, only: %i[show destroy] do
     resources :reviews, only: %i[new create]
     resources :payments, only: :new
     member do

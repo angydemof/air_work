@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: %i[show accept reject]
+  before_action :find_booking, only: %i[show accept reject destroy]
 
   def index
     @bookings = Booking.all
@@ -52,11 +52,20 @@ class BookingsController < ApplicationController
     redirect_to dashboards_path
   end
 
+  def destroy
+    @booking.delete
+    redirect_to dashboards_path
+  end
+
   private
 
   def compute_price(booking)
-    number_of_days = booking.end_date - booking.start_date
-    number_of_days * booking.office.price
+    if booking.end_date
+      number_of_days = booking.end_date - booking.start_date
+      number_of_days * booking.office.price
+    else
+      booking.office.price
+    end
   end
 
   def find_booking
