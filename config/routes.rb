@@ -7,11 +7,14 @@ Rails.application.routes.draw do
 
   resources :bookings, only: %i[show] do
     resources :reviews, only: %i[new create]
+    resources :payments, only: :new
     member do
       get 'accept'
       get 'reject'
     end
   end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   resources :offices, only: %i[index show] do
     resources :bookings, only: %i[new create]
