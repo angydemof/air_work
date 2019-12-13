@@ -5,6 +5,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin-bottom: 12px;
 }
 
 .card-dashboard img {
@@ -29,8 +30,18 @@
 
 .card-dashboard .card-dashboard-infos {
   padding: 16px;
+  height: 125px;
 }
 
 .tab-pane {
   margin-top: 24px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
 }
