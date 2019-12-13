@@ -15,26 +15,32 @@
   <div class="tab-content clearfix">
     <div class="tab-pane active" id="1a">
       <% if current_user.bookings == [] %>
-      <h2>No bookings made so far...</h2>
+      <p>No bookings made so far...</p>
       <% else %>
       <% current_user.bookings.each do |booking| %>
       <%= link_to booking_path(booking) do %>
       <div class="card-dashboard">
         <%= cl_image_tag booking.office.photo %>
         <div class="card-dashboard-infos">
-          <div class="d-flex">
+          <div class="d-flex justify-content-between align-items-center">
             <div class="card-left">
-              <h2>Booking id: <%= booking.id %></h2>
-              <h2>Office: <%= booking.office.name %></h2>
-              <h2>Location: <%= booking.office.address %></h2>
+              <p>Booking id: <%= booking.id %></p>
+              <p>Office: <%= booking.office.name %></p>
+              <p>Location: <%= booking.office.address %></p>
             </div>
             <div class="card-right">
-              <i class="fas fa-pencil-alt"></i><i class="fas fa-trash-alt"></i>
+              <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure you wish to delete? (if less than 48h before your stay, you will not be refunded...)" } do %>
+              <i class="fas fa-trash-alt delete"></i>
+              <% end %>
               <% if booking.status == "closed" && booking.reviews == [] %>
               <%= link_to '<h3>Add review</h3>'.html_safe, new_booking_review_path(booking) %>
               <% elsif booking.status == "closed" && booking.reviews != [] %>
               <% booking.reviews.each do |review| %>
-              <%= review.rating %><i id="card-trip-stars" class="fas fa-star"></i>
+              <div class="d-flex">
+                <div>
+                  <h3 class="rating"><%= review.rating %>/5</h3>
+                </div>
+              </div>
               <% end %>
               <% end %>
             </div>
@@ -48,7 +54,7 @@
 
     <div class="tab-pane" id="2a">
       <% if @bookings_received == [] %>
-      <h2>No booking request received so far...</h2>
+      <p>No booking request received so far...</p>
       <% else %>
       <% @bookings_received.each do |booking| %>
       <div class="card-dashboard">
@@ -72,7 +78,7 @@
 
     <div class="tab-pane" id="3a">
       <% if @offices == [] %>
-      <h2>No office submitted so far...</h2>
+      <p>No office submitted so far...</p>
       <% else %>
       <% @offices.each do |office| %>
       <div class="card-dashboard">
@@ -85,7 +91,7 @@
               <h2>Location: <%= office.address %></h2>
             </div>
             <div class="card-right">
-              <i class="fas fa-pencil-alt"></i><i class="fas fa-trash-alt"></i>
+              <i class="fas fa-pencil-alt edit"></i><i class="fas fa-trash-alt delete"></i>
             </div>
           </div>
         </div>

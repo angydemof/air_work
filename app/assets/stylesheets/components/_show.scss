@@ -40,8 +40,8 @@
 
 img.show-avatar {
   border-radius: 50%;
-    height: 7vh;
-    width: 7vh;
+    height: 8vh;
+    width: 8vh;
     bottom: -3vh;
     right: 2vh;
     position: absolute;
@@ -55,6 +55,10 @@ img.show-avatar {
   font-size: 20px;
 }
 
+.show-price {
+  color: $green;
+}
+
 .show-feature {
   margin-top: 24px;
   margin-left: 18px;
@@ -64,7 +68,9 @@ img.show-avatar {
 
 .show-feature i {
   font-size: 20px;
+  color: $green;
 }
+
 .show-page .row {
     display: flex;
     flex-wrap: wrap;
@@ -74,7 +80,8 @@ img.show-avatar {
 
 .show-page h3 {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: medium;
+  text-decoration: underline;
 
 }
 
@@ -87,5 +94,27 @@ img.show-avatar {
   font-weight: bold;
 
 }
+
+.show-stars {
+  color: $green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
