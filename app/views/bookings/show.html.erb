@@ -12,31 +12,31 @@
                 <p><%= @booking.office.description%></p>
               </div>
               <div align="right">
-                <%= image_tag @booking.office.photo, class: 'img-booking-show text-right' %>
+                <%= image_tag @booking.office.photo, class: "img-booking-show text-right" %>
               </div>
           </div>
         <% end %>
       </li>
-      <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking id: <%= @booking.id %></li>
+      <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking id: <p> <%= @booking.id %></p></li>
       <li class="list-group-item d-inline-flex justify-content-between align-items-center">
         <div>
-          <i class="fas fa-user"></i>Guest: <%= @booking.user.email %>
+          <i class="fas fa-user"></i>Guest: <p> <%= @booking.user.email %> </p>
         </div>
       </li>
-      <li class="list-group-item"><i class="fas fa-map-marker-alt"></i>Location: <%= @booking.office.address %></li>
-      <li class="list-group-item"><i class="fas fa-users"></i>No. of guests: <%= @booking.number_of_people %></li>
-      <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking status: <%= @booking.status %></li>
-      <li class="list-group-item"><i class="fas fa-hashtag"></i>Payment status: <%= @booking.status %></li>
-      <li class="list-group-item"><i class="far fa-calendar-alt"></i>Checkin-date: <%= @booking.start_date %> ---- Checkout-date: <%= @booking.end_date %></li>
+      <li class="list-group-item"><i class="fas fa-map-marker-alt"></i>Location: <p> <%= @booking.office.address %> </p></li>
+      <li class="list-group-item"><i class="fas fa-users"></i>No. of guests: <p> <%= @booking.number_of_people %></p></li>
+      <li class="list-group-item"><i class="fas fa-hashtag"></i>Booking status: <p> <%= @booking.status %></p></li>
+      <li class="list-group-item"><i class="fas fa-hashtag"></i>Payment status: <p> <%= @booking.status %></p></li>
+      <li class="list-group-item"><i class="far fa-calendar-alt"></i>Checkin-date: <p> <%= @booking.start_date %> </p> ---- Checkout-date: <p> <%= @booking.end_date %></p></li>
       <li class="list-group-item d-inline-flex justify-content-between align-items-center">
         <div>
-          <i class="fas fa-euro-sign"></i>Total Price: <%= humanized_money_with_symbol @booking.amount %>
+          <i class="fas fa-euro-sign"></i>Total Price: <p> <%= humanized_money_with_symbol @booking.amount %>
         </div>
         <div>
-           <strong><%= @booking.payment_status%></strong>
+           <strong><p> <%= @booking.payment_status%></p> </strong>
         </div>
       </li>
-      <li class="list-group-item">Invoice Issued On: <%= @booking.created_at.to_date %></li>
+      <li class="list-group-item">Invoice Issued On: <p> <%= @booking.created_at.to_date %></p></li>
 
     </ul>
 
