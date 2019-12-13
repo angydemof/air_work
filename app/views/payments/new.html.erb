@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <h2>Checkout summary</h2>
-  <div class="row py-4">
-    <div><%= image_tag @booking.office.photo, width: '80%' %></div>
+  <div>
+    <%= image_tag @booking.office.photo, width: '100%' %>
     <div class="col">
       <ul class="list-group my-3">
         <li class="list-group-item"><strong>Office: </strong><%= @booking.office.name %></li>

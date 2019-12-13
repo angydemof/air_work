@@ -22,18 +22,14 @@
 
       <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-hashtag"></i><u> Booking id:</u></div> <p> <%= @booking.id %></p></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-user "></i><u>Guest:</u></div><p> <%= @booking.user.email %></p></li>
-      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-map-marker-alt"></i><u>Location: </u></div><p><%= @booking.office.address %> </p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-map-marker-alt"></i><u>Location: </u></div><p style=" text-align: right;
+    width: 50%;"><%= @booking.office.address %> </p></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-users"></i><u>No. of guests:</u></div><p> <%= @booking.number_of_people %></p></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-hashtag"></i><u>Booking status: </u></div><p> <%= @booking.status %></p></li>
-      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-hashtag"></i><u>Payment status:</u> </div><p> <%= @booking.status %></p></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-hashtag"></i><u>Payment status:</u> </div><p> <%= @booking.payment_status %></p></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="far fa-calendar-alt"></i><u>Checkin-date:</u></div> <p> <%= @booking.start_date %> </p></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="far fa-calendar-alt"></i><u>Checkout-date: </u></div><p> <%= @booking.end_date %></p></li>
-      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-euro-sign"></i><u>Total Price: </u></div><p> <%= humanized_money_with_symbol @booking.amount %></p>
-
-        <div>
-           <strong><p> <%= @booking.payment_status%></p> </strong>
-        </div>
-      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-euro-sign"></i><u>Total Price: </u></div><p> <%= humanized_money_with_symbol @booking.amount %></p></li>
       <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-file-invoice"></i><u>Invoice Issued On:</u> </div><p> <%= @booking.created_at.to_date %></p></li>
 
     </ul>
