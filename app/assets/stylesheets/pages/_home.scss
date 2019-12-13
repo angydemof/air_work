@@ -10,7 +10,6 @@
 .banner-text {
   padding: 432px 6px;
   color: white;
-  font-weight: bold;
 }
 .sign-in-image {
 
@@ -30,8 +29,9 @@
 .rating {
   position: absolute;
   color: $green;
-  bottom: -9px;
-  left: 343px;
+  bottom: 0px;
+  left: 348px;
+  font-size: 18px;
 }
 
 .delete {
