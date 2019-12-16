@@ -1,6 +1,6 @@
 class OfficesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :find_office, except: %i[index new]
+  before_action :find_office, except: %i[index new create]
 
   def index
     if params[:query].present?
@@ -37,7 +37,6 @@ class OfficesController < ApplicationController
   def create
     @office = Office.new(set_office_params)
     @office.user = current_user
-
     if @office.save
       redirect_to office_path(@office)
     else
@@ -70,8 +69,8 @@ class OfficesController < ApplicationController
 
   def set_office_params
     params.require(:office).permit(:name, :description, :address, :capacity,
-                                   :size, :photo, :type, :wifi, :coffee_machine,
+                                   :size, :photo, :office_type, :wifi, :coffee_machine,
                                    :smoking_area, :pets_allowed, :printer,
-                                   :kitchen, :terrace, :price_cents)
+                                   :kitchen, :terrace, :price_cents, :price, :heater_ac, :adaptors)
   end
 end

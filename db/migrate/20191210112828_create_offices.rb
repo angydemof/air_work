@@ -7,7 +7,7 @@ class CreateOffices < ActiveRecord::Migration[5.2]
       t.integer :capacity
       t.integer :size
       t.string :photo
-      t.string :type
+      t.string :office_type
       t.references :user, foreign_key: true
       t.boolean :wifi, default: false
       t.boolean :coffee_machine, default: false
