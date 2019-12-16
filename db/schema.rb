@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_12_164414) do
+ActiveRecord::Schema.define(version: 2019_12_16_132643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,15 +21,23 @@ ActiveRecord::Schema.define(version: 2019_12_12_164414) do
     t.date "start_date"
     t.date "end_date"
     t.integer "number_of_people"
-    t.string "status"
+    t.string "status", default: "Pending"
     t.string "payment_status"
-    t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "checkout_session_id"
     t.integer "amount_cents", default: 0, null: false
     t.index ["office_id"], name: "index_bookings_on_office_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "office_schedules", force: :cascade do |t|
+    t.bigint "office_id"
+    t.bigint "schedule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["office_id"], name: "index_office_schedules_on_office_id"
+    t.index ["schedule_id"], name: "index_office_schedules_on_schedule_id"
   end
 
   create_table "offices", force: :cascade do |t|
@@ -39,15 +47,18 @@ ActiveRecord::Schema.define(version: 2019_12_12_164414) do
     t.integer "capacity"
     t.integer "size"
     t.string "photo"
-    t.string "type"
+    t.string "office_type"
     t.bigint "user_id"
-    t.boolean "wifi"
-    t.boolean "coffee_machine"
-    t.boolean "smoking_area"
-    t.boolean "pets_allowed"
-    t.boolean "printer"
-    t.boolean "kitchen"
-    t.boolean "terrace"
+    t.boolean "wifi", default: false
+    t.boolean "coffee_machine", default: false
+    t.boolean "smoking_area", default: false
+    t.boolean "pets_allowed", default: false
+    t.boolean "printer", default: false
+    t.boolean "kitchen", default: false
+    t.boolean "terrace", default: false
+    t.boolean "lunch_included", default: false
+    t.boolean "heater_ac", default: false
+    t.boolean "adaptors", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
@@ -63,6 +74,12 @@ ActiveRecord::Schema.define(version: 2019_12_12_164414) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,6 +99,8 @@ ActiveRecord::Schema.define(version: 2019_12_12_164414) do
 
   add_foreign_key "bookings", "offices"
   add_foreign_key "bookings", "users"
+  add_foreign_key "office_schedules", "offices"
+  add_foreign_key "office_schedules", "schedules"
   add_foreign_key "offices", "users"
   add_foreign_key "reviews", "bookings"
 end

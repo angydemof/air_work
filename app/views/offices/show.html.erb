@@ -1,11 +1,11 @@
 <div class="container">
 <div class="show-page">
   <div class="show">
-    <%= image_tag @office.photo %>
+    <%= cl_image_tag @office.photo %>
     <%= image_tag @office.user.avatar, class: "show-avatar" %>
   </div>
   <div class="d-flex inline justify-content-between ml-3">
-    <h2 class="font-weight-normal"><%= @office.name %></h2>
+    <h2 class="font-weight-bold"><%= @office.name %></h2>
     <div class="show-price">
     <h2> <%= humanized_money_with_symbol @office.price %> / Day </h2>
     </div>
@@ -21,63 +21,107 @@
     <h3>Features</h3>
     <div class="row mt-3">
       <div class="col-4 mb-3">
+        <% if @office.wifi %>
         <i class="fas fa-wifi"></i>
         <p>Wifi</p>
+        <% else %>
+        <i class="fas fa-wifi" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Wifi</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.coffee_machine %>
         <i class="fas fa-mug-hot"></i>
         <p>Coffee/Tea</p>
+        <% else %>
+        <i class="fas fa-mug-hot" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Coffee/Tea</p>
+        <% end  %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.printer %>
         <i class="fas fa-print"></i>
         <p>Printer</p>
+        <% else %>
+        <i class="fas fa-print" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Printer</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.kitchen %>
         <i class="fas fa-utensils"></i>
         <p>Kitchen</p>
+        <% else %>
+         <i class="fas fa-utensils" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Kitchen</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.pets_allowed %>
         <i class="fas fa-paw"></i>
         <p>Pets allowed</p>
+        <% else %>
+        <i class="fas fa-paw" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Pets allowed</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.smoking_area %>
         <i class="fas fa-smoking"></i>
         <p>Smoker friendly</p>
+        <% else %>
+        <i class="fas fa-smoking" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2">Smoker friendly</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.lunch_included %>
         <i class="fas fa-drumstick-bite"></i>
         <p>Lunch included</p>
+        <% else %>
+         <i class="fas fa-drumstick-bite" style="opacity: 0.2;"></i>
+         <p style="opacity: 0.2">Lunch included</p>
+         <% end  %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.heater_ac %>
         <i class="fas fa-thermometer-empty"></i>
         <p>Heater & A/C</p>
+        <% else %>
+        <i class="fas fa-thermometer-empty" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2">Heater & A/C</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.adaptors %>
         <i class="fas fa-plug"></i>
         <p>Adaptors</p>
+        <% else %>
+        <i class="fas fa-plug" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2">Adaptors</p>
+        <% end %>
       </div>
     </div>
   </div>
   <div class="show-review">
     <h3>Reviews</h3>
+
+    <% @office.bookings.each do |booking| %>
+    <% if booking.reviews[0] != nil && booking.reviews[0].rating != nil %>
+
     <div class="d-flex inline justify-content-between">
-      <p style="width: 65%;">Pretty cozy place to work in</p>
+      <p style="width: 65%;"><%= booking.reviews[0].content %></p>
       <div class="show-stars">
-        <% 5.times do %>
+        <% (booking.reviews[0].rating).times do %>
         <i id="card-trip-stars" class="fas fa-star"></i>
+        <% end %>
         <% end %>
       </div>
     </div>
-    <div class="d-flex inline justify-content-between">
-      <p style="width: 65%;">Georgous place to meet interesting people</p>
-      <div class="show-stars">
-        <% 4.times do %>
-        <i id="card-trip-stars" class="fas fa-star"></i>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
+<br>
 <div
   id="map"
   style="width: 100%;

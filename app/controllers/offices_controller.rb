@@ -1,9 +1,8 @@
 class OfficesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :find_office, except: %i[index new]
+  before_action :find_office, except: %i[index new create]
 
   def index
-
     @offices = Office.filter_by_location(params[:queryLocation]).filter_by_price(params[:queryPrice])
                       .filter_by_date(params[:queryDate])
     @offices.geocoded
@@ -14,7 +13,6 @@ class OfficesController < ApplicationController
         infoWindow: render_to_string(partial: 'info_window', locals: { office: office })
       }
     end
-
   end
 
   def show
@@ -34,7 +32,6 @@ class OfficesController < ApplicationController
   def create
     @office = Office.new(set_office_params)
     @office.user = current_user
-
     if @office.save
       redirect_to office_path(@office)
     else
@@ -70,13 +67,13 @@ class OfficesController < ApplicationController
   end
 
   def find_office
-    @office = current_user.offices.find(params[:id])
+    @office = Office.find(params[:id])
   end
 
   def set_office_params
     params.require(:office).permit(:name, :description, :address, :capacity,
-                                   :size, :photo, :type, :wifi, :coffee_machine,
+                                   :size, :photo, :office_type, :wifi, :coffee_machine,
                                    :smoking_area, :pets_allowed, :printer,
-                                   :kitchen, :terrace, :price_cents)
+                                   :kitchen, :terrace, :price_cents, :price, :heater_ac, :adaptors)
   end
 end

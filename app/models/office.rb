@@ -8,4 +8,6 @@ class Office < ApplicationRecord
   scope :filter_by_location, ->(location) { location.present? ? where("address ILIKE ?", "%#{location}%") : all }
   scope :filter_by_price, ->(price) { price.present? ? where("price_cents < ?", price.to_i * 100) : all }
   scope :filter_by_date, ->(date) { date.present? ? offices.joins(:bookings).where.not(bookings: { start_date: date }) : all }
+  has_many :schedules
+  mount_uploader :photo, PhotoUploader
 end
