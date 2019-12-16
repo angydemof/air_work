@@ -1,7 +1,18 @@
 <div class="container">
+  <div style="font-size: 22px;" class="text-center px-2">
+    <p>Thank you for your booking, you will receive an email soon..</p>
+  </div>
+  <div class="d-flex justify-content-between">
+   <div align="left" class="mb-2">
+    <%= link_to "Go to dashboard", dashboards_path, style:"color: #11BF98"  %>
+  </div>
+  <div align="right" class="mb-2">
+    <%= link_to "Pick another office", offices_path, style:"color: #11BF98"  %>
+  </div>
+  </div>
   <div class="card booking-card" style="max-width: 56rem;">
     <div class="card-header">
-      <h2 style="font-size: 24px;">Booking Details</h2>
+      <h2 style="font-size: 22px;">Booking Details</h2>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
@@ -33,12 +44,7 @@
       <li class="list-group-item d-flex justify-content-between align-items-center"><div><i class="fas fa-file-invoice"></i><u>Invoice Issued On:</u> </div><p> <%= @booking.created_at.to_date %></p></li>
 
     </ul>
-<div style="font-size: 18px;" class="text-center px-2">
-    <p>Thank you for your booking, you will receive an email soon..</p>
-  </div>
-  <div align="center" class="mb-2">
-    <%= link_to "Go to dashboard", dashboards_path, style:"color: #11BF98"  %>
-  </div>
+
 
 </div>
 
