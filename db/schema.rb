@@ -21,9 +21,8 @@ ActiveRecord::Schema.define(version: 2019_12_12_164414) do
     t.date "start_date"
     t.date "end_date"
     t.integer "number_of_people"
-    t.string "status"
+    t.string "status", default: "Pending"
     t.string "payment_status"
-    t.integer "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "checkout_session_id"
@@ -41,13 +40,16 @@ ActiveRecord::Schema.define(version: 2019_12_12_164414) do
     t.string "photo"
     t.string "type"
     t.bigint "user_id"
-    t.boolean "wifi"
-    t.boolean "coffee_machine"
-    t.boolean "smoking_area"
-    t.boolean "pets_allowed"
-    t.boolean "printer"
-    t.boolean "kitchen"
-    t.boolean "terrace"
+    t.boolean "wifi", default: false
+    t.boolean "coffee_machine", default: false
+    t.boolean "smoking_area", default: false
+    t.boolean "pets_allowed", default: false
+    t.boolean "printer", default: false
+    t.boolean "kitchen", default: false
+    t.boolean "terrace", default: false
+    t.boolean "lunch_included", default: false
+    t.boolean "heater_ac", default: false
+    t.boolean "adaptors", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
