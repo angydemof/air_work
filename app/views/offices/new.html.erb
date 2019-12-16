@@ -10,17 +10,28 @@
         <%= b.input :type, collection: ["Desk", "Private Office", "Meeting Room"], prompt: "Which type of office?" %>
       </div>
     </div>
+    <%= b.input :description %>
     <%= b.input :capacity, as: :integer %>
     <%#= b.association :schedules, label: "Available days", as: :check_boxes %>
     <div class="form-group">
-      <legend class="col-form-label pt-0">Available days</legend>
-      <input type="hidden" name="office[schedule_ids][]" value="">
 
-      <% Schedule.all.each do |schedule| %>
-          <input class="check_boxes optional" type="checkbox" value="<%= schedule.id %>" name="office[schedule_ids][]" id="office_schedule_ids_<%= schedule.id %>">
-          <label for="office_schedule_ids_<%= schedule.id %>"><%= schedule.name %></label>
+      <legend class="col-form-label pt-0">Available days</legend>
+
+      <input type="hidden" name="office[schedule_ids][]" value="">
+      <div class="schedule-choices">
+        <% Schedule.all.each do |schedule| %>
+
+          <input hidden=true type="checkbox" value="<%= schedule.id %>" name="office[schedule_ids][]" id="office_schedule_ids_<%= schedule.id %>">
+
+          <label class="schedule-choice" for="office_schedule_ids_<%= schedule.id %>"><%= schedule.name %>
+            <i class="fa fa-check"></i>
+          </label>
+
         <% end %>
-        </div>
+
+      </div>
+
+    </div>
 
       <!-- <div class="form-check">
         <input class="form-check-input check_boxes optional" type="checkbox" value=""<%=  %> name="office[schedule_ids][]" id="office_schedule_ids_1">
@@ -53,17 +64,24 @@
     </fieldset> -->
 
     <%= b.input :price %>
-    <div class="equipments">
-      <%= b.input :wifi %>
-      <%= b.input :coffee_machine %>
-      <%= b.input :smoking_area %>
-      <%= b.input :pets_allowed %>
-      <%= b.input :printer %>
-      <%= b.input :kitchen %>
-      <%= b.input :terrace %>
+    <div class="row">
+      <div class="col-6">
+        <%= b.input :coffee_machine %>
+        <%= b.input :smoking_area %>
+        <%= b.input :pets_allowed %>
+        <%= b.input :heater_ac %>
+        <%= b.input :adaptors %>
+
+      </div>
+      <div class="col-6">
+        <%= b.input :wifi %>
+        <%= b.input :printer %>
+        <%= b.input :kitchen %>
+        <%= b.input :terrace %>
+
+      </div>
 
     </div>
-    <%= b.input :description %>
     <%= b.input :photo %>
     <%= b.input :photo_cache, as: :hidden %>
 
