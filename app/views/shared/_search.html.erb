@@ -1,8 +1,40 @@
 <%= form_tag offices_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
+    <%= text_field_tag :queryLocation,
+      params[:queryLocation],
       class: "form-control",
       placeholder: "Search location"
     %>
+
+    <% if (params[:controller] == "offices" && params[:action] == "index") %>
+      <div class="row my-4">
+        <div class="col-4">
+           <%= date_field_tag :queryDate,
+              params[:queryDate],
+              class: "form-control",
+              placeholder: "Select Dates"
+            %>
+        </div>
+        <div class="col-4">
+          <%= text_field_tag :queryPrice,
+            params[:queryPrice],
+            class: "form-control",
+            placeholder: "Select Price"
+          %>
+        </div>
+         <div class="col-4">
+          <%= text_field_tag :queryCapacity,
+            params[:queryCapacity],
+            class: "form-control",
+            placeholder: "Select Capacity"
+          %>
+        </div>
+      </div>
+
+
+    <% end %>
+
+
+    <%= submit_tag "Apply filters", class: 'btn btn-info', hidden: true %>
+
 <% end %>
 

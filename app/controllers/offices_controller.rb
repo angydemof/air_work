@@ -3,11 +3,8 @@ class OfficesController < ApplicationController
   before_action :find_office, except: %i[index new create]
 
   def index
-    if params[:query].present?
-      @offices = Office.where("address ILIKE ?", "%#{params[:query]}%")
-    else
-      @offices = Office.all
-    end
+    @offices = Office.filter_by_location(params[:queryLocation]).filter_by_price(params[:queryPrice])
+                      .filter_by_date(params[:queryDate])
     @offices.geocoded
     @markers = @offices.map do |office|
       {
@@ -20,12 +17,10 @@ class OfficesController < ApplicationController
 
   def show
     @office = Office.find(params[:id])
-    @markers = [
-      {
-        lat: @office.latitude,
-        lng: @office.longitude,
-        infoWindow: render_to_string(partial: 'info_window', locals: { office: @office })
-      }]
+    @markers = [{
+                  lat: @office.latitude,
+                  lng: @office.longitude,
+                  infoWindow: render_to_string(partial: 'info_window', locals: { office: @office }) }]
 
     @booking = Booking.new
   end
@@ -62,6 +57,14 @@ class OfficesController < ApplicationController
   end
 
   private
+
+  def search_params
+    {
+      location: params[:queryLocation],
+      start_date: params[:queryDate],
+      price: params[:queryPrice]
+    }
+  end
 
   def find_office
     @office = Office.find(params[:id])
