@@ -21,40 +21,85 @@
     <h3>Features</h3>
     <div class="row mt-3">
       <div class="col-4 mb-3">
+        <% if @office.wifi %>
         <i class="fas fa-wifi"></i>
         <p>Wifi</p>
+        <% else %>
+        <i class="fas fa-wifi" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Wifi</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.coffee_machine %>
         <i class="fas fa-mug-hot"></i>
         <p>Coffee/Tea</p>
+        <% else %>
+        <i class="fas fa-mug-hot" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Coffee/Tea</p>
+        <% end  %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.printer %>
         <i class="fas fa-print"></i>
         <p>Printer</p>
+        <% else %>
+        <i class="fas fa-print" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Printer</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.kitchen %>
         <i class="fas fa-utensils"></i>
         <p>Kitchen</p>
+        <% else %>
+         <i class="fas fa-utensils" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Kitchen</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.pets_allowed %>
         <i class="fas fa-paw"></i>
         <p>Pets allowed</p>
+        <% else %>
+        <i class="fas fa-paw" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2;">Pets allowed</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.smoking_area %>
         <i class="fas fa-smoking"></i>
         <p>Smoker friendly</p>
+        <% else %>
+        <i class="fas fa-smoking" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2">Smoker friendly</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.lunch_included %>
         <i class="fas fa-drumstick-bite"></i>
         <p>Lunch included</p>
+        <% else %>
+         <i class="fas fa-drumstick-bite" style="opacity: 0.2;"></i>
+         <p style="opacity: 0.2">Lunch included</p>
+         <% end  %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.heater_ac %>
         <i class="fas fa-thermometer-empty"></i>
         <p>Heater & A/C</p>
+        <% else %>
+        <i class="fas fa-thermometer-empty" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2">Heater & A/C</p>
+        <% end %>
       </div>
       <div class="col-4 mb-3">
+        <% if @office.adaptors %>
         <i class="fas fa-plug"></i>
         <p>Adaptors</p>
+        <% else %>
+        <i class="fas fa-plug" style="opacity: 0.2;"></i>
+        <p style="opacity: 0.2">Adaptors</p>
+        <% end %>
       </div>
     </div>
   </div>
