@@ -65,7 +65,7 @@ class OfficesController < ApplicationController
   private
 
   def find_office
-    @office = current_user.offices.find(params[:id])
+    @office = Office.find(params[:id])
   end
 
   def set_office_params

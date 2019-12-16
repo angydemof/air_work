@@ -1,7 +1,7 @@
 <div id="banner-container">
   <div class="banner-text container mb-3">
-    <h2>The office you don't want to leave</h2>
-    <p>Find an affordable & nearby space to work and meet other professionals</p>
+    <h1>The office you don't want to leave</h1>
+    <h3>Find an affordable & nearby space to work and meet other professionals</h3>
     <%= link_to offices_path do %>
     <div class='btn-ghost-banner'>Pick your office</div>
     <% end %>
@@ -11,7 +11,7 @@
   <div class="mt-3">
     <%= render 'shared/search'%>
   </div>
-  <h3 class="mt-3">Top offices in your city</h3 class="mt-3">
+  <h3 class="mt-3 font-weight-bold">Top offices in your city</h3 class="mt-3">
       <% @offices.each do |office| %>
       <div class="card-landing">
         <%= link_to office_path(office) do %>
@@ -20,7 +20,7 @@
           <div class="card-minimal-infos">
             <div class="card-minimal-text">
               <h2><%= office.name %></h2>
-              <p><%= office.description.truncate_words(3) %></p>
+              <p><%= office.description.truncate_words(4) %></p>
             </div>
             <h2 class="card-minimal-pricing"><%= humanized_money_with_symbol office.price %></h2>
             <%= image_tag office.user.avatar, class: "card-minimal-user avatar-bordered" %>
