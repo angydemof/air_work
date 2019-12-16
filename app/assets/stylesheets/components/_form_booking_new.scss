@@ -1,0 +1,23 @@
+.schedule-choices {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.schedule-choice {
+  background: $green;
+  padding: 20px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+//   &:hover {
+//     opacity: 1;
+//     cursor: pointer;
+//   }
+}
+
+.active {
+  opacity: 1;
+}

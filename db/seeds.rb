@@ -156,3 +156,12 @@ office10 = Office.new(
 Booking.create(office: office10, user: user1)
 office10.save!
 puts "#{office10.name} created!"
+
+days = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
+
+Schedule.destroy_all
+puts "Schedules destroyed"
+days.each do |day|
+  Schedule.create(name: day)
+  puts "#{day} was created"
+end
