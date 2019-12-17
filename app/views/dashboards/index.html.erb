@@ -17,7 +17,7 @@
       <% if current_user.bookings == [] %>
       <p>No bookings made so far...</p>
       <% else %>
-      <% current_user.bookings.each do |booking| %>
+      <% @bookings.each do |booking| %>
       <%= link_to booking_path(booking) do %>
       <div class="card-dashboard">
         <%= cl_image_tag booking.office.photo %>
@@ -81,6 +81,7 @@
       <p>No office submitted so far...</p>
       <% else %>
       <% @offices.each do |office| %>
+      <%= link_to office_path(office) do %>
       <div class="card-dashboard">
         <%= cl_image_tag office.photo %>
         <div class="card-dashboard-infos">
@@ -101,6 +102,7 @@
           </div>
         </div>
       </div>
+      <% end %>
       <% end %>
       <% end %>
     </div>
