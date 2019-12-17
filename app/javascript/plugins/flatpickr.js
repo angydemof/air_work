@@ -9,7 +9,8 @@ const initFlatpickr = () => {
   flatpickr('#start_date', {
     mode: 'range',
     minDate: 'today',
-    dateFormat: "d/m/Y"
+    dateFormat: "d/m/Y",
+    plugins: [new rangePlugin({ input: "#end_date"})]
   })
 }
 

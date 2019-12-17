@@ -1,10 +1,13 @@
 class OfficesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :find_office, except: %i[index new create]
+  # before_action :search_params, only: :index
 
   def index
-    @offices = Office.filter_by_location(params[:queryLocation]).filter_by_price(params[:queryPrice])
-                      .filter_by_date(params[:queryDate])
+    @offices = Office.filter_by_location(params[:queryLocation])
+                     .filter_by_price(params[:queryPrice])
+                     .filter_by_start_date(params[:queryStartDate])
+                     .filter_by_end_date(params[:queryEndDate])
     @offices.geocoded
     @markers = @offices.map do |office|
       {
@@ -59,11 +62,10 @@ class OfficesController < ApplicationController
   private
 
   def search_params
-    {
-      location: params[:queryLocation],
-      start_date: params[:queryDate],
-      price: params[:queryPrice]
-    }
+    location = params[:queryLocation]
+    start_date = params[:queryStartDate]
+    end_date = params[:queryEndDate]
+    price = params[:queryPrice]
   end
 
   def find_office

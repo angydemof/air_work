@@ -25,7 +25,7 @@ office1 = Office.new(
     description: 'Nice place for small and big groups',
     price: 15,
     user: user1,
-    photo: 'https://www.washingtonian.com/wp-content/uploads/2019/11/Copy-of-Bethesda_001-1-1500x1000.jpg'
+    remote_photo_url: 'https://www.washingtonian.com/wp-content/uploads/2019/11/Copy-of-Bethesda_001-1-1500x1000.jpg'
   )
 Booking.create(office: office1, user: user2, status: 'closed')
 office1.save!
@@ -38,7 +38,7 @@ office2 = Office.new(
     description: 'Casual place to work with a group',
     price: 25,
     user: user1,
-    photo: 'https://coworkingspain.es/sites/default/files/05_hw-cs.jpg'
+    remote_photo_url: 'https://coworkingspain.es/sites/default/files/05_hw-cs.jpg'
   )
 Booking.create(office: office2, user: user2)
 office2.save!
@@ -51,7 +51,7 @@ office3 = Office.new(
     description: 'Informal working space in city center',
     price: 15,
     user: user1,
-    photo: 'https://vortexcoworking.es/wp-content/uploads/2019/05/WAT-April-e1564498639805.jpg'
+    remote_photo_url: 'https://vortexcoworking.es/wp-content/uploads/2019/05/WAT-April-e1564498639805.jpg'
   )
 
 Booking.create(office: office3, user: user2)
@@ -65,7 +65,7 @@ office4 = Office.new(
     description: 'Perfect place to work during summers',
     price: 20,
     user: user1,
-    photo: 'https://www.travelinglifestyle.net/wp-content/uploads/2018/01/betahaus-barcelona.jpg'
+    remote_photo_url: 'https://www.travelinglifestyle.net/wp-content/uploads/2018/01/betahaus-barcelona.jpg'
   )
 
 Booking.create(office: office4, user: user3)
@@ -80,7 +80,7 @@ office5 = Office.new(
     description: 'Ideal living room for co working',
     price: 15,
     user: user1,
-    photo: 'https://images.squarespace-cdn.com/content/v1/5cd2d784f8135a4ebed70b0f/1562750876987-J08ULOBOL3911YTVUGDG/ke17ZwdGBToddI8pDm48kGvplalqpkZZR-u_b9LPjJN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0ooWhOa5cxQSJsU3rXf8luWMDGZFaScFoh_VgNWt1kTJ5b0qCG8UlEpxXoRE9n_diQ/annie-spratt-hCb3lIB8L8E-unsplash.jpg?format=1000w'
+    remote_photo_url: 'https://images.squarespace-cdn.com/content/v1/5cd2d784f8135a4ebed70b0f/1562750876987-J08ULOBOL3911YTVUGDG/ke17ZwdGBToddI8pDm48kGvplalqpkZZR-u_b9LPjJN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0ooWhOa5cxQSJsU3rXf8luWMDGZFaScFoh_VgNWt1kTJ5b0qCG8UlEpxXoRE9n_diQ/annie-spratt-hCb3lIB8L8E-unsplash.jpg?format=1000w'
   )
 
 Booking.create(office: office5, user: user3)
@@ -94,7 +94,7 @@ office6 = Office.new(
     description: 'Perfect little space for co working',
     price: 20,
     user: user2,
-    photo: 'http://collabory.world/wp-content/uploads/2019/03/shutterstock-741463711.png'
+    remote_photo_url: 'http://collabory.world/wp-content/uploads/2019/03/shutterstock-741463711.png'
   )
 
 Booking.create(office: office6, user: user3)
@@ -109,7 +109,7 @@ office7 = Office.new(
     description: 'Ideal balcony with sea view for working with friends',
     price: 15,
     user: user2,
-    photo: 'https://www.coworkramblacatalunya.es/wp-content/uploads/2019/04/Espacios-de-coworking-Barcelona.jpg'
+    remote_photo_url: 'https://www.coworkramblacatalunya.es/wp-content/uploads/2019/04/Espacios-de-coworking-Barcelona.jpg'
   )
 
 Booking.create(office: office7, user: user3)
@@ -124,7 +124,7 @@ office8 = Office.new(
     description: 'Cool space to have a relaxing working day',
     price: 25,
     user: user3,
-    photo: 'http://eud.leneurbanity.com/wp-content/uploads/2015/04/betahaus-Barcelona-window.jpg'
+    remote_photo_url: 'http://eud.leneurbanity.com/wp-content/uploads/2015/04/betahaus-Barcelona-window.jpg'
   )
 
 Booking.create(office: office8, user: user1)
@@ -137,7 +137,7 @@ office9 = Office.new(
     description: 'Have fun working with local co-workers',
     price: 10,
     user: user3,
-    photo: 'https://sgmagazine.com/sites/default/files/u143089/distrii_singapore_coworking.jpg'
+    remote_photo_url: 'https://sgmagazine.com/sites/default/files/u143089/distrii_singapore_coworking.jpg'
   )
 
 Booking.create(office: office9, user: user1)
@@ -150,7 +150,7 @@ office10 = Office.new(
     description: 'Spend a lazy working day in this beautiful living room',
     price: 15,
     user: user3,
-    photo: 'https://i.pinimg.com/736x/3d/7a/f7/3d7af7fc736d43e27b1f52a80e0ed698.jpg'
+    remote_photo_url: 'https://i.pinimg.com/736x/3d/7a/f7/3d7af7fc736d43e27b1f52a80e0ed698.jpg'
   )
 
 Booking.create(office: office10, user: user1)
