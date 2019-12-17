@@ -23,7 +23,7 @@
                 <p><%= @booking.office.description%></p>
               </div>
               <div align="right">
-                <%= image_tag @booking.office.photo, class: "img-booking-show text-right" %>
+                <%= cl_image_tag @booking.office.photo, class: "img-booking-show text-right" %>
               </div>
           </div>
         <% end %>
