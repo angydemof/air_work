@@ -7,13 +7,21 @@
 
     <% if (params[:controller] == "offices" && params[:action] == "index") %>
       <div class="row my-4">
-        <div class="col-4">
-           <%= date_field_tag :queryDate,
-              params[:queryDate],
+        <div class="col-4 show-flatpickr">
+           <%= text_field_tag :queryStartDate,
+              params[:queryStartDate],
               class: "form-control",
-              placeholder: "Select Dates"
+              placeholder: "Select Dates",
+              as: :string,
+              id: "start_date"
             %>
+            <%= hidden_field_tag :queryEndDate,
+              params[:queryEndDate],
+              id: "end_date"
+            %>
+
         </div>
+
         <div class="col-4">
           <%= text_field_tag :queryPrice,
             params[:queryPrice],

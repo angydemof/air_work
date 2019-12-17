@@ -132,10 +132,9 @@
   </div>
 
   <br>
-  <div class="show-flatpickr">
-
-
-<%= render "bookings/new", office: @office, booking: @booking%>
-
-</div>
+  <% if current_user != @office.user %>
+    <div class="show-flatpickr">
+      <%= render "bookings/new", office: @office, booking: @booking%>
+    </div>
+  <% end %>
 </div>
