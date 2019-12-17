@@ -91,7 +91,12 @@
               <h2>Location: <%= office.address %></h2>
             </div>
             <div class="card-right">
-              <i class="fas fa-pencil-alt edit"></i><i class="fas fa-trash-alt delete"></i>
+              <%= link_to edit_office_path(office) do %>
+                <i class="fas fa-pencil-alt edit"></i>
+              <% end %>
+              <%= link_to office_path(office), method: :delete, data: { confirm: "Are you sure you wish to delete?" } do %>
+                <i class="fas fa-trash-alt delete"></i>
+              <% end %>
             </div>
           </div>
         </div>
