@@ -16,6 +16,7 @@
   font-weight: bold;
   margin-left: 0px;
   padding-bottom: 5px;
+  padding-left: 0px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -33,6 +34,11 @@
   align-items: flex-end;
   position: relative;
   height: 100px;
+
+  i {
+    padding-left: 10px;
+    color: $green;
+  }
 }
 
 .card-trip-infos .card-trip-user {
@@ -43,5 +49,8 @@
 }
 
 .card-trip-pricing {
-  font-size: 18px;
+  font-size: 20px;
+
 }
+
+
