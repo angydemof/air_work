@@ -2,7 +2,7 @@
     <%= text_field_tag :queryLocation,
       params[:queryLocation],
       class: "form-control",
-      placeholder: "Search location"
+      placeholder: "Location"
     %>
 
     <% if (params[:controller] == "offices" && params[:action] == "index") %>
@@ -11,7 +11,7 @@
            <%= text_field_tag :queryStartDate,
               params[:queryStartDate],
               class: "form-control",
-              placeholder: "Select Dates",
+              placeholder: "Dates",
               as: :string,
               id: "start_date"
             %>
@@ -26,14 +26,14 @@
           <%= text_field_tag :queryPrice,
             params[:queryPrice],
             class: "form-control",
-            placeholder: "Select Price"
+            placeholder: "Price"
           %>
         </div>
          <div class="col-4">
           <%= text_field_tag :queryCapacity,
             params[:queryCapacity],
             class: "form-control",
-            placeholder: "Select Capacity"
+            placeholder: "Capacity"
           %>
         </div>
       </div>
