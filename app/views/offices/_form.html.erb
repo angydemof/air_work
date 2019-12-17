@@ -1,10 +1,10 @@
 <%= simple_form_for @office do |b| %>
     <div class="row">
       <div class="col-6">
-        <%= b.input :name, as: :string, placeholder: "Beautiful office" %>
+        <%= b.input :name, as: :string %>
       </div>
-      <div class="col-6">
-        <%= b.input :office_type, collection: ["Desk", "Private Office", "Meeting Room"], prompt: "Which type of office?" %>
+      <div class="col-6" >
+        <%= b.input :office_type, collection: ["Desk", "Private Office", "Meeting Room"] %>
       </div>
     </div>
     <%= b.input :description %>
@@ -13,7 +13,7 @@
     <%#= b.association :schedules, label: "Available days", as: :check_boxes %>
     <div class="form-group">
 
-      <legend class="col-form-label pt-0">Available days</legend>
+      <legend class="col-form-label pt-0 pb-0">Available days</legend>
 
       <input type="hidden" name="office[schedule_ids][]" value="">
       <div class="schedule-choices">
@@ -21,7 +21,7 @@
 
           <input hidden=true type="checkbox" value="<%= schedule.id %>" name="office[schedule_ids][]" id="office_schedule_ids_<%= schedule.id %>">
 
-          <label class="schedule-choice" for="office_schedule_ids_<%= schedule.id %>"><%= schedule.name %>
+          <label class="schedule-choice" for="office_schedule_ids_<%= schedule.id %>"><%= schedule.name[0..2] %>
             <i class="fa fa-check"></i>
           </label>
 
@@ -62,12 +62,12 @@
     </fieldset> -->
 
     <%= b.input :price %>
-    <div class="row">
+    <div class="row new-features">
       <div class="col-6">
-        <%= b.input :coffee_machine %>
+        <%= b.input :coffee_machine, :label => "Coffee/Tea"%>
         <%= b.input :smoking_area %>
         <%= b.input :pets_allowed %>
-        <%= b.input :heater_ac %>
+        <%= b.input :heater_ac, :label => "Heater & A/C"%>
         <%= b.input :adaptors %>
 
       </div>
@@ -80,7 +80,7 @@
       </div>
 
     </div>
-    <%= b.input :photo %>
+    <%= b.input :photo, :label => "Pictures" %>
     <%= b.input :photo_cache, as: :hidden %>
 
 
