@@ -1,0 +1,12 @@
+span.flatpickr-day.today.selected.startRange {
+  background-color: $green;
+}
+
+span.flatpickr-day.selected.endRange {
+  background-color: $green;
+}
+
+.form-control:focus {
+  border-color: $green;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0);
+}
