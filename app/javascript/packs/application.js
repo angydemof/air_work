@@ -4,7 +4,9 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { initFlatpickr } from '../plugins/flatpickr';
 import { schedule } from '../offices/schedule_choice';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 initMapbox();
 initFlatpickr();
 schedule();
+initAutocomplete();

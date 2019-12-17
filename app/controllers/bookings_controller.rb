@@ -69,7 +69,7 @@ class BookingsController < ApplicationController
   end
 
   def find_booking
-    @booking = current_user.bookings.find(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def set_booking_params
