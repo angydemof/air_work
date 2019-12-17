@@ -22,7 +22,7 @@
           <%= link_to "Dashboard", dashboards_path, class: "nav-link", style: "color: #11BF98" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Host an office", "#", class: "nav-link" %>
+          <%= link_to "Host an office", new_office_path,class: "nav-link" %>
         </li>
         <li class="nav-item">
            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
