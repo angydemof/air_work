@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_12_16_132643) do
     t.integer "capacity"
     t.integer "size"
     t.string "photo"
-    t.string "office_type"
+    t.string "type"
     t.bigint "user_id"
     t.boolean "wifi", default: false
     t.boolean "coffee_machine", default: false
