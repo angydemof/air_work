@@ -5,10 +5,15 @@ class OfficesController < ApplicationController
 
   def index
     @offices = Office.filter_by_location(params[:queryLocation])
-                     .filter_by_price(params[:queryPrice])
-                     .filter_by_start_date(params[:queryStartDate])
-                     .filter_by_end_date(params[:queryEndDate])
+                     .filter_by_date(params[:queryStartDate])
+                     .filter_by_date(params[:queryEndDate])
     @offices.geocoded
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
     @markers = @offices.map do |office|
       {
         lat: office.latitude,

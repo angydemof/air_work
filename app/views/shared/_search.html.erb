@@ -1,7 +1,7 @@
-<%= form_tag offices_path, method: :get do %>
+<%= form_tag offices_path, method: :get, remote: true do %>
     <%= text_field_tag :queryLocation,
       params[:queryLocation],
-      class: "form-control",
+      class: "form-control search-filter",
       placeholder: "Location"
     %>
 
@@ -10,7 +10,7 @@
         <div class="col-4 show-flatpickr">
            <%= text_field_tag :queryStartDate,
               params[:queryStartDate],
-              class: "form-control",
+              class: "form-control search-filter",
               placeholder: "Dates",
               as: :string,
               id: "start_date"
@@ -25,14 +25,14 @@
         <div class="col-4">
           <%= text_field_tag :queryPrice,
             params[:queryPrice],
-            class: "form-control",
+            class: "form-control search-filter",
             placeholder: "Price"
           %>
         </div>
          <div class="col-4">
           <%= text_field_tag :queryCapacity,
             params[:queryCapacity],
-            class: "form-control",
+            class: "form-control search-filter",
             placeholder: "Capacity"
           %>
         </div>
