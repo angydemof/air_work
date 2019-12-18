@@ -4,12 +4,12 @@ class OfficesController < ApplicationController
   # before_action :search_params, only: :index
 
   def index
-    @offices = Office.filter_by_location(params[:queryLocation])
-                     .filter_by_date(params[:queryStartDate])
-                     .filter_by_date(params[:queryEndDate])
-                     .filter_by_capacity(params[:queryCapacity])
+    @offices = Office.filter_by_location(location)
+                     .filter_by_date(start_date)
+                     .filter_by_date(end_date)
+                     .filter_by_capacity(capacity)
+                     .order(price_cents: price.to_i == 2 ? :desc : :asc)
     @offices.geocoded
-
     respond_to do |format|
       format.html
       format.js
@@ -67,12 +67,24 @@ class OfficesController < ApplicationController
 
   private
 
-  def search_params
-    location = params[:queryLocation]
-    start_date = params[:queryStartDate]
-    end_date = params[:queryEndDate]
-    price = params[:queryPrice]
-    capacity = params[:queryCapacity]
+  def price
+    params[:queryPrice]
+  end
+
+  def location
+    params[:queryLocation]
+  end
+
+  def start_date
+    params[:queryStartDate]
+  end
+
+  def end_date
+    params[:queryEndDate]
+  end
+
+  def capacity
+    params[:queryCapacity]
   end
 
   def find_office
