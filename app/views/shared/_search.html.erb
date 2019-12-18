@@ -1,11 +1,17 @@
 <%= form_tag offices_path, method: :get, remote: true do %>
-    <div class="form-group has-search">
-     <span class="fa fa-search form-control-feedback"></span>
-     <%= text_field_tag :queryLocation,
-        params[:queryLocation],
-        class: "form-control search-filter",
-        placeholder: "Location"
-      %>
+    <div class="d-flex justify-content-between align-items-center">
+       <div class="form-group has-search flex-fill pr-2">
+         <span class="fa fa-search form-control-feedback"></span>
+         <%= text_field_tag :queryLocation,
+            params[:queryLocation],
+            class: "form-control search-filter",
+            placeholder: "Location"
+          %>
+        </div>
+        <div class="mx-2" id="current-location">
+          <h2 style="font-size: 26px; color: #11BF98;"><i class="far fa-compass"></i></h2>
+        </div>
+
     </div>
 
 
