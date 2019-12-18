@@ -1,11 +1,12 @@
 import $ from 'jquery';
 
-const schedule = () => {
+const equipment = () => {
   $(document).ready(function(){
-    $(".schedule-choice").click(function(){
+    $(".equipment-choice").click(function(){
       $(this).toggleClass("active");
     });
   });
 };
 
-export { schedule };
+export { equipment };
+

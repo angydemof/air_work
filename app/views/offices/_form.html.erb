@@ -62,22 +62,83 @@
     </fieldset> -->
 
     <%= b.input :price %>
-    <div class="row new-features">
-      <div class="col-6">
-        <%= b.input :coffee_machine, :label => "Coffee/Tea"%>
-        <%= b.input :smoking_area %>
-        <%= b.input :pets_allowed %>
-        <%= b.input :heater_ac, :label => "Heater & A/C"%>
-        <%= b.input :adaptors %>
+    <div class="show-feature">
+      <h3>Features</h3>
+      <div class="row mt-3">
+        <div class="col-4 mb-3">
 
-      </div>
-      <div class="col-6">
-        <%= b.input :wifi %>
-        <%= b.input :printer %>
-        <%= b.input :kitchen %>
-        <%= b.input :terrace %>
+          <input hidden=true type="checkbox" name="coffee_machine" id="coffee_machine">
 
-      </div>
+          <label class="equipment-choice" for="coffee_machine"><i class="fas fa-mug-hot"></i><br>
+            <p>Coffee/Tea</p>
+          </label><br>
+        </div>
+
+        <div class="col-4 mb-3">
+          <input hidden=true type="checkbox" name="smoking_area" id="smoking_area">
+
+          <label class="equipment-choice" for="smoking_area"><i class="fas fa-smoking"></i><br>
+            <p>Smoker friendly</p>
+          </label><br>
+        </div>
+
+        <div class="col-4 mb-3">
+          <input hidden=true type="checkbox" name="pets_allowed" id="pets_allowed">
+
+          <label class="equipment-choice" for="pets_allowed"><i class="fas fa-paw"></i><br>
+            <p>Pets allowed</p>
+          </label><br>
+        </div>
+
+        <div class="col-4 mb-3">
+          <input hidden=true type="checkbox" name="heater_ac" id="heater_ac">
+
+          <label class="equipment-choice" for="heater_ac"><i class="fas fa-thermometer"></i><br>
+            <p>Heater & A/C</p>
+          </label><br>
+        </div>
+
+        <div class="col-4 mb-3">
+          <input hidden=true type="checkbox" name="adaptors" id="adaptors">
+
+          <label class="equipment-choice" for="adaptors"><i class="fas fa-plug"></i><br>
+            <p>Adaptors</p>
+          </label>
+        </div>
+
+        <div class="col-4 mb-3">
+          <input hidden=true type="checkbox" name="wifi" id="wifi">
+
+          <label class="equipment-choice" for="wifi"><i class="fas fa-wifi"></i><br>
+            <p>Wifi</p>
+          </label>
+        </div>
+
+        <div class="col-4 mb-3">
+          <input hidden=true type="checkbox" name="printer" id="Printer">
+
+          <label class="equipment-choice" for="Printer"><i class="fas fa-print"></i><br>
+            <p>Printer</p>
+          </label>
+        </div>
+
+        <div class="col-4 mb-3">
+          <input hidden=true type="checkbox" name="kitchen" id="kitchen">
+
+          <label class="equipment-choice" for="kitchen"><i class="fas fa-utensils"></i><br>
+            <p>Kitchen</p>
+          </label>
+        </div>
+
+        <div class="col-4 mb-3">
+          <input hidden=true type="checkbox" name="lunch_included" id="lunch_included">
+
+          <label class="equipment-choice" for="lunch_included"><i class="fas fa-drumstick-bite"></i><br>
+            <p>Lunch included</p>
+          </label>
+        </div>
+
+    </div>
 
     </div>
     <%= b.input :photo, :label => "Pictures" %>
