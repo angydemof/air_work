@@ -7,7 +7,7 @@
         <li class="list-group-item"><strong>Office: </strong><%= @booking.office.name %></li>
         <li class="list-group-item"><strong>Amount: </strong><%= humanized_money_with_symbol @booking.amount %></li>
         <li class="list-group-item"><strong>Booking Status: </strong><%= @booking.status %></li>
-        <li class="list-group-item"></li>
+
       </ul>
       <button id="pay" class="btn-ghost" align="center">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
