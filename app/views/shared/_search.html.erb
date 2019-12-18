@@ -1,16 +1,20 @@
-<%= form_tag offices_path, method: :get do %>
-    <%= text_field_tag :queryLocation,
-      params[:queryLocation],
-      class: "form-control",
-      placeholder: "Location"
-    %>
+<%= form_tag offices_path, method: :get, remote: true do %>
+    <div class="form-group has-search">
+     <span class="fa fa-search form-control-feedback"></span>
+     <%= text_field_tag :queryLocation,
+        params[:queryLocation],
+        class: "form-control search-filter",
+        placeholder: "Location"
+      %>
+    </div>
+
 
     <% if (params[:controller] == "offices" && params[:action] == "index") %>
       <div class="row my-4">
         <div class="col-4 show-flatpickr">
            <%= text_field_tag :queryStartDate,
               params[:queryStartDate],
-              class: "form-control",
+              class: "form-control search-filter",
               placeholder: "Dates",
               as: :string,
               id: "start_date"
@@ -23,17 +27,16 @@
         </div>
 
         <div class="col-4">
-          <%= text_field_tag :queryPrice,
-            params[:queryPrice],
-            class: "form-control",
-            placeholder: "Price"
-          %>
+          <%= select_tag :queryPrice,
+              options_for_select([["Price - Low to High", 1], ["Price - High to Low", 2]]),
+              { class: "form-control search-filter", prompt: "Sort by price"} %>
+
         </div>
          <div class="col-4">
           <%= text_field_tag :queryCapacity,
             params[:queryCapacity],
-            class: "form-control",
-            placeholder: "Capacity"
+            class: "form-control search-filter",
+            placeholder: "Guests"
           %>
         </div>
       </div>

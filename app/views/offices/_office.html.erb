@@ -1,0 +1,22 @@
+
+<% if offices.size == 1 %>
+  <h3><%= pluralize offices.size, "office" %> near you</h3>
+<% else %>
+  <h3><%= pluralize offices.size, "offices" %> near you</h3>
+<% end %>
+
+<% offices.all.each do |office| %>
+  <%= link_to office_path(office) do %>
+    <div class="card-trip " data-aos="zoom-in">
+      <%= cl_image_tag office.photo %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= office.name.truncate_words(4) %></h2><% if office.capacity != nil %><p style="font-size: 20px;"><strong><%= office.capacity %></strong><i class="fas fa-user"></i></p>
+        <% end %>
+        </div>
+        <strong><p class="card-trip-pricing"><%= humanized_money_with_symbol office.price %>/day</p></strong>
+        <%= image_tag office.user.avatar, class: "card-trip-user avatar-bordered" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
