@@ -8,6 +8,7 @@ import { currentLocation } from '../offices/current_location';
 import { applyFilter } from '../offices/search_filter';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { equipment } from '../offices/equipment_choice';
+import { previewImageOnFileSelect } from '../components/photo_preview';
 
 initMapbox();
 initFlatpickr();
@@ -16,3 +17,5 @@ initAutocomplete();
 applyFilter();
 equipment();
 currentLocation();
+previewImageOnFileSelect();
+

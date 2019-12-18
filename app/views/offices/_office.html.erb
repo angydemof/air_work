@@ -7,7 +7,7 @@
 
 <% offices.all.each do |office| %>
   <%= link_to office_path(office) do %>
-    <div class="card-trip">
+    <div class="card-trip " data-aos="zoom-in">
       <%= cl_image_tag office.photo %>
       <div class="card-trip-infos">
         <div>
