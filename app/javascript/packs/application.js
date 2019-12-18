@@ -5,8 +5,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initFlatpickr } from '../plugins/flatpickr';
 import { schedule } from '../offices/schedule_choice';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { equipment } from '../offices/equipment_choice';
 
 initMapbox();
 initFlatpickr();
 schedule();
 initAutocomplete();
+equipment();

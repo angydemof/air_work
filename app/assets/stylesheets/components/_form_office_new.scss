@@ -3,6 +3,8 @@
   justify-content: space-between;
   margin: 20px 0;
   flex-wrap: wrap;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .schedule-choice {
@@ -12,12 +14,14 @@
   opacity: .4;
   flex: 0 0 30%;
   text-align: center;
-//   &:hover {
-//     opacity: 1;
-//     cursor: pointer;
-//   }
+
+}
+
+.equipment-choice {
+  opacity: .2;
 }
 
 .active {
   opacity: 1;
 }
+
