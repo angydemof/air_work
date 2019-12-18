@@ -1,0 +1,7 @@
+
+function replaceOffices (innerHTML) {
+  const offices = document.getElementById('offices');
+  offices.innerHTML = innerHTML;
+}
+
+replaceOffices("<%= j render 'office', offices: @offices %>");
