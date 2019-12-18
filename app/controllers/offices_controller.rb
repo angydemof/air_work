@@ -41,9 +41,15 @@ class OfficesController < ApplicationController
   def create
     @office = Office.new(set_office_params)
     @office.user = current_user
-    params[]
+    schedules = []
+
 
     if @office.save
+      params[:office][:schedule_ids].each do |schedule|
+        OfficeSchedule.create(schedule_id: schedule, office: @office)
+      end
+      @office.save
+
       redirect_to office_path(@office)
     else
       render :new
