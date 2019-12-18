@@ -1,149 +1,119 @@
 <%= simple_form_for @office do |b| %>
-    <div class="row">
-      <div class="col-6">
-        <%= b.input :name, as: :string %>
-      </div>
-      <div class="col-6" >
-        <%= b.input :office_type, collection: ["Desk", "Private Office", "Meeting Room"] %>
-      </div>
-    </div>
-    <%= b.input :description %>
-    <%= b.input :address %>
-    <%= b.input :capacity, as: :integer %>
-    <%#= b.association :schedules, label: "Available days", as: :check_boxes %>
-    <div class="form-group">
+<div class="row">
+  <div class="col-6">
+    <%= b.input :name, as: :string %>
+  </div>
+  <div class="col-6" >
+    <%= b.input :office_type, collection: ["Desk", "Private Office", "Meeting Room"] %>
+  </div>
+</div>
+<%= b.input :description %>
+<%= b.input :address %>
+<%= b.input :capacity, as: :integer %>
+<%#= b.association :schedules, label: "Available days", as: :check_boxes %>
+<div class="form-group">
 
-      <legend class="col-form-label pt-0 pb-0">Available days</legend>
+  <legend class="col-form-label pt-0 pb-0">Available days</legend>
 
-      <input type="hidden" name="office[schedule_ids][]" value="">
-      <div class="schedule-choices">
-        <% Schedule.all.each do |schedule| %>
+  <input type="hidden" name="office[schedule_ids][]" value="">
+  <div class="schedule-choices">
+    <% Schedule.all.each do |schedule| %>
 
-          <input hidden=true type="checkbox" value="<%= schedule.id %>" name="office[schedule_ids][]" id="office_schedule_ids_<%= schedule.id %>">
+    <input hidden=true type="checkbox" value="<%= schedule.id %>" name="office[schedule_ids][]" id="office_schedule_ids_<%= schedule.id %>">
 
-          <label class="schedule-choice" for="office_schedule_ids_<%= schedule.id %>"><%= schedule.name[0..2] %>
-            <i class="fa fa-check"></i>
-          </label>
+    <label class="schedule-choice" for="office_schedule_ids_<%= schedule.id %>"><%= schedule.name[0..2] %>
+      <i class="fa fa-check"></i>
+    </label>
 
-        <% end %>
+    <% end %>
 
-      </div>
+  </div>
 
-    </div>
+</div>
 
-      <!-- <div class="form-check">
-        <input class="form-check-input check_boxes optional" type="checkbox" value=""<%=  %> name="office[schedule_ids][]" id="office_schedule_ids_1">
-        <label class="form-check-label collection_check_boxes" for="office_schedule_ids_1">Monday</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input check_boxes optional" type="checkbox" value="2" name="office[schedule_ids][]" id="office_schedule_ids_2">
-        <label class="form-check-label collection_check_boxes" for="office_schedule_ids_2">Tuesday</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input check_boxes optional" type="checkbox" value="3" name="office[schedule_ids][]" id="office_schedule_ids_3">
-        <label class="form-check-label collection_check_boxes" for="office_schedule_ids_3">Wednesday</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input check_boxes optional" type="checkbox" value="4" name="office[schedule_ids][]" id="office_schedule_ids_4">
-        <label class="form-check-label collection_check_boxes" for="office_schedule_ids_4">Thursday</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input check_boxes optional" type="checkbox" value="5" name="office[schedule_ids][]" id="office_schedule_ids_5">
-        <label class="form-check-label collection_check_boxes" for="office_schedule_ids_5">Friday</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input check_boxes optional" type="checkbox" value="6" name="office[schedule_ids][]" id="office_schedule_ids_6">
-        <label class="form-check-label collection_check_boxes" for="office_schedule_ids_6">Saturday</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input check_boxes optional" type="checkbox" value="7" name="office[schedule_ids][]" id="office_schedule_ids_7">
-        <label class="form-check-label collection_check_boxes" for="office_schedule_ids_7">Sunday</label>
-      </div>
-    </fieldset> -->
+<%= b.input :price %>
+<div class="show-feature">
+  <h3>Features</h3>
+  <div class="row mt-3">
+    <div class="col-4 mb-3 form-group">
 
-    <%= b.input :price %>
-    <div class="show-feature">
-      <h3>Features</h3>
-      <div class="row mt-3">
-        <div class="col-4 mb-3">
+      <input hidden=true type="checkbox" value="true" name="office[coffee_machine]" id="coffee_machine">
 
-          <input hidden=true type="checkbox" name="coffee_machine" id="coffee_machine">
-
-          <label class="equipment-choice" for="coffee_machine"><i class="fas fa-mug-hot"></i><br>
-            <p>Coffee/Tea</p>
-          </label><br>
-        </div>
-
-        <div class="col-4 mb-3">
-          <input hidden=true type="checkbox" name="smoking_area" id="smoking_area">
-
-          <label class="equipment-choice" for="smoking_area"><i class="fas fa-smoking"></i><br>
-            <p>Smoker friendly</p>
-          </label><br>
-        </div>
-
-        <div class="col-4 mb-3">
-          <input hidden=true type="checkbox" name="pets_allowed" id="pets_allowed">
-
-          <label class="equipment-choice" for="pets_allowed"><i class="fas fa-paw"></i><br>
-            <p>Pets allowed</p>
-          </label><br>
-        </div>
-
-        <div class="col-4 mb-3">
-          <input hidden=true type="checkbox" name="heater_ac" id="heater_ac">
-
-          <label class="equipment-choice" for="heater_ac"><i class="fas fa-thermometer"></i><br>
-            <p>Heater & A/C</p>
-          </label><br>
-        </div>
-
-        <div class="col-4 mb-3">
-          <input hidden=true type="checkbox" name="adaptors" id="adaptors">
-
-          <label class="equipment-choice" for="adaptors"><i class="fas fa-plug"></i><br>
-            <p>Adaptors</p>
-          </label>
-        </div>
-
-        <div class="col-4 mb-3">
-          <input hidden=true type="checkbox" name="wifi" id="wifi">
-
-          <label class="equipment-choice" for="wifi"><i class="fas fa-wifi"></i><br>
-            <p>Wifi</p>
-          </label>
-        </div>
-
-        <div class="col-4 mb-3">
-          <input hidden=true type="checkbox" name="printer" id="Printer">
-
-          <label class="equipment-choice" for="Printer"><i class="fas fa-print"></i><br>
-            <p>Printer</p>
-          </label>
-        </div>
-
-        <div class="col-4 mb-3">
-          <input hidden=true type="checkbox" name="kitchen" id="kitchen">
-
-          <label class="equipment-choice" for="kitchen"><i class="fas fa-utensils"></i><br>
-            <p>Kitchen</p>
-          </label>
-        </div>
-
-        <div class="col-4 mb-3">
-          <input hidden=true type="checkbox" name="lunch_included" id="lunch_included">
-
-          <label class="equipment-choice" for="lunch_included"><i class="fas fa-drumstick-bite"></i><br>
-            <p>Lunch included</p>
-          </label>
-        </div>
-
+      <label class="equipment-choice" for="coffee_machine"><i class="fas fa-mug-hot"></i><br>
+        <p>Coffee/Tea</p>
+      </label><br>
     </div>
 
+    <div class="col-4 mb-3 form-group">
+      <input hidden=true type="checkbox" value="true" name="office[smoking_area]" id="smoking_area">
+
+      <label class="equipment-choice" for="smoking_area"><i class="fas fa-smoking"></i><br>
+        <p>Smoker friendly</p>
+      </label><br>
     </div>
-    <%= b.input :photo, :label => "Pictures" %>
-    <%= b.input :photo_cache, as: :hidden %>
+
+    <div class="col-4 mb-3 form-group">
+      <input hidden=true type="checkbox" value=true name="office[pets_allowed]" id="pets_allowed">
+
+      <label class="equipment-choice" for="pets_allowed"><i class="fas fa-paw"></i><br>
+        <p>Pets allowed</p>
+      </label><br>
+    </div>
+
+    <div class="col-4 mb-3 form-group">
+      <input hidden=true type="checkbox" value=true name="office[heater_ac]" id="heater_ac">
+
+      <label class="equipment-choice" for="heater_ac"><i class="fas fa-thermometer"></i><br>
+        <p>Heater & A/C</p>
+      </label><br>
+    </div>
+
+    <div class="col-4 mb-3 form-group">
+      <input hidden=true type="checkbox" value=true name="office[adaptors]" id="adaptors">
+
+      <label class="equipment-choice" for="adaptors"><i class="fas fa-plug"></i><br>
+        <p>Adaptors</p>
+      </label>
+    </div>
+
+    <div class="col-4 mb-3 form-group">
+      <input hidden=true type="checkbox" value=true name="office[wifi]" id="wifi">
+
+      <label class="equipment-choice" for="wifi"><i class="fas fa-wifi"></i><br>
+        <p>Wifi</p>
+      </label>
+    </div>
+
+    <div class="col-4 mb-3 form-group">
+      <input hidden=true type="checkbox" value=true name="office[printer]" id="Printer">
+
+      <label class="equipment-choice" for="Printer"><i class="fas fa-print"></i><br>
+        <p>Printer</p>
+      </label>
+    </div>
+
+    <div class="col-4 mb-3 form-group">
+      <input hidden=true type="checkbox" value=true name="office[kitchen]" id="kitchen">
+
+      <label class="equipment-choice" for="kitchen"><i class="fas fa-utensils"></i><br>
+        <p>Kitchen</p>
+      </label>
+    </div>
+
+    <div class="col-4 mb-3 form-group">
+      <input hidden=true type="checkbox" value=true name="office[lunch_included]" id="lunch_included">
+
+      <label class="equipment-choice" for="lunch_included"><i class="fas fa-drumstick-bite"></i><br>
+        <p>Lunch included</p>
+      </label>
+    </div>
+
+  </div>
+
+</div>
+<%= b.input :photo, :label => "Pictures" %>
+<%= b.input :photo_cache, as: :hidden %>
 
 
-    <div align="center"><%= b.submit "Save office", class: "btn-ghost mt-4" %>
+<div align="center"><%= b.submit "Save office", class: "btn-ghost mt-4" %>
   <% end %>
