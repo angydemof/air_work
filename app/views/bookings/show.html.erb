@@ -12,13 +12,13 @@
   </div>
   <div class="card booking-card" style="max-width: 56rem;">
     <div class="card-header">
-      <h2 style="font-size: 22px;">Booking Details</h2>
+      <h2 class="font-weight-bold" style="font-size: 18px;">Booking Details</h2>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <%= link_to office_path(@booking.office) do %>
           <div class="card-product d-flex justify-content-between w-100">
-              <div>
+              <div style="max-width: 200px;">
                 <h2 style="font-size: 22px;"><%= @booking.office.name %></h2>
                 <p><%= @booking.office.description%></p>
               </div>
