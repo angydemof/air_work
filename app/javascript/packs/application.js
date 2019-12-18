@@ -4,19 +4,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { initFlatpickr } from '../plugins/flatpickr';
 import { schedule } from '../offices/schedule_choice';
+import { applyFilter } from '../offices/search_filter';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
 initMapbox();
 initFlatpickr();
 schedule();
 initAutocomplete();
-
-
-var searchFilters = document.querySelectorAll(".search-filter");
-var form = document.querySelector('form');
-
-for (const filter of searchFilters) {
-  filter.addEventListener( 'change', function() {
-    Rails.fire(form, 'submit');
-  });
-}
+applyFilter();

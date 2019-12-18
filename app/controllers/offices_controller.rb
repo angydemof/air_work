@@ -7,6 +7,7 @@ class OfficesController < ApplicationController
     @offices = Office.filter_by_location(params[:queryLocation])
                      .filter_by_date(params[:queryStartDate])
                      .filter_by_date(params[:queryEndDate])
+                     .filter_by_capacity(params[:queryCapacity])
     @offices.geocoded
 
     respond_to do |format|
@@ -71,6 +72,7 @@ class OfficesController < ApplicationController
     start_date = params[:queryStartDate]
     end_date = params[:queryEndDate]
     price = params[:queryPrice]
+    capacity = params[:queryCapacity]
   end
 
   def find_office

@@ -24,6 +24,7 @@ office1 = Office.new(
     address: "Carrer de Ca N'Oliva, 54, 08020 Barcelona",
     description: 'Nice place for small and big groups',
     price: 15,
+    capacity: 4,
     user: user1,
     remote_photo_url: 'https://www.washingtonian.com/wp-content/uploads/2019/11/Copy-of-Bethesda_001-1-1500x1000.jpg'
   )
@@ -37,6 +38,7 @@ office2 = Office.new(
     address: "Carrer del Rec, 22, 08401 Granollers, Barcelona",
     description: 'Casual place to work with a group',
     price: 25,
+    capacity: 5,
     user: user1,
     remote_photo_url: 'https://coworkingspain.es/sites/default/files/05_hw-cs.jpg'
   )
@@ -50,6 +52,7 @@ office3 = Office.new(
     address: "25 Passeig de Gracia, Spain",
     description: 'Informal working space in city center',
     price: 15,
+    capacity: 8,
     user: user1,
     remote_photo_url: 'https://vortexcoworking.es/wp-content/uploads/2019/05/WAT-April-e1564498639805.jpg'
   )
@@ -64,6 +67,7 @@ office4 = Office.new(
     address: "R. Mário Cardoso, Fanhões, Portugal",
     description: 'Perfect place to work during summers',
     price: 20,
+    capacity: 8,
     user: user1,
     remote_photo_url: 'https://www.travelinglifestyle.net/wp-content/uploads/2018/01/betahaus-barcelona.jpg'
   )
@@ -79,6 +83,7 @@ office5 = Office.new(
     address: "11 Place Saint-Michel, 75006 Paris, France",
     description: 'Ideal living room for co working',
     price: 15,
+    capacity: 5,
     user: user1,
     remote_photo_url: 'https://images.squarespace-cdn.com/content/v1/5cd2d784f8135a4ebed70b0f/1562750876987-J08ULOBOL3911YTVUGDG/ke17ZwdGBToddI8pDm48kGvplalqpkZZR-u_b9LPjJN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0ooWhOa5cxQSJsU3rXf8luWMDGZFaScFoh_VgNWt1kTJ5b0qCG8UlEpxXoRE9n_diQ/annie-spratt-hCb3lIB8L8E-unsplash.jpg?format=1000w'
   )
@@ -93,6 +98,7 @@ office6 = Office.new(
     address: "9 Allée René Ménard, 18000 Bourges, France",
     description: 'Perfect little space for co working',
     price: 20,
+    capacity: 8,
     user: user2,
     remote_photo_url: 'http://collabory.world/wp-content/uploads/2019/03/shutterstock-741463711.png'
   )
@@ -108,6 +114,7 @@ office7 = Office.new(
     address: "Patio de Banderas, s/n, 41004 Sevilla",
     description: 'Ideal balcony with sea view for working with friends',
     price: 15,
+    capacity: 4,
     user: user2,
     remote_photo_url: 'https://www.coworkramblacatalunya.es/wp-content/uploads/2019/04/Espacios-de-coworking-Barcelona.jpg'
   )
@@ -123,6 +130,7 @@ office8 = Office.new(
     address: "Plaza de la Independencia, 7, 28001 Madrid",
     description: 'Cool space to have a relaxing working day',
     price: 25,
+    capacity: 4,
     user: user3,
     remote_photo_url: 'http://eud.leneurbanity.com/wp-content/uploads/2015/04/betahaus-Barcelona-window.jpg'
   )
@@ -136,6 +144,7 @@ office9 = Office.new(
     address: "Wapper 9-11, 2000 Antwerpen, Belgium",
     description: 'Have fun working with local co-workers',
     price: 10,
+    capacity: 5,
     user: user3,
     remote_photo_url: 'https://sgmagazine.com/sites/default/files/u143089/distrii_singapore_coworking.jpg'
   )
@@ -148,7 +157,7 @@ office10 = Office.new(
     name: 'Cozy living room',
     address: "Plaza de la Independencia, 7, 28001 Madrid",
     description: 'Spend a lazy working day in this beautiful living room',
-    price: 15,
+    price: 7,
     user: user3,
     remote_photo_url: 'https://i.pinimg.com/736x/3d/7a/f7/3d7af7fc736d43e27b1f52a80e0ed698.jpg'
   )

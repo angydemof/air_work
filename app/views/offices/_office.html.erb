@@ -1,4 +1,10 @@
 
+<% if offices.size == 1 %>
+  <h3><%= pluralize offices.size, "office" %> near you</h3>
+<% else %>
+  <h3><%= pluralize offices.size, "offices" %> near you</h3>
+<% end %>
+
 <% offices.all.each do |office| %>
   <%= link_to office_path(office) do %>
     <div class="card-trip">

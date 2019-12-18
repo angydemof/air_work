@@ -15,11 +15,6 @@
 
   <div class="tab-content clearfix mt-3">
     <div class="tab-pane active" id="offices">
-      <% if @offices.size == 1 %>
-        <h3><%= pluralize @offices.size, "office" %> near you</h3>
-      <% else %>
-        <h3><%= pluralize @offices.size, "offices" %> near you</h3>
-      <% end %>
       <div id="offices">
         <%= render 'office', offices: @offices %>
       </div>
