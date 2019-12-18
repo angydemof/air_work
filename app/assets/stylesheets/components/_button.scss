@@ -45,3 +45,22 @@
     background-color: white;
   }
 }
+
+.btn-ghost-inverted {
+  opacity: 1;
+  color: #11BF98;
+  background-color: white;
+  border: 1px solid #11BF98;
+  padding: 1vh 1vh;
+  margin-bottom: 3vh;
+  border-radius: 50px;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  display: block;
+  width: 50%;
+  font-style: normal;
+  font-weight: medium;
+  text-align: center;
+  font-size: 2vh;
+}
