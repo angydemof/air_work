@@ -8,7 +8,16 @@ class Office < ApplicationRecord
 
   scope :filter_by_location, ->(location) { location.present? ? where("address ILIKE ?", "%#{location}%") : all }
 
-  scope :filter_by_date, ->(date) { date.present? ? left_joins(:bookings).where("bookings.start_date < ? OR bookings.end_date > ?", date, date) : all }
+  scope :start_date_between, ->(start_date, end_date) { start_date.present? && end_date.present? ? left_joins(:bookings).where.not("bookings.start_date BETWEEN ? AND ?", start_date, end_date) : all }
+
+  scope :end_date_between, ->(start_date, end_date) { start_date.present? && end_date.present? ? left_joins(:bookings).where.not("bookings.end_date BETWEEN ? AND ?", start_date, end_date) : all }
+
+  scope :start_and_end_date, ->(start_date, end_date) { start_date.present? && end_date.present? ? left_joins(:bookings).where.not("bookings.start_date < ? AND bookings.end_date > ?", start_date, end_date) : all }
+
+  scope :filter_by_date, ->(start_date, end_date) {
+    start_date_between(start_date, end_date).or(end_date_between(start_date, end_date)).or(start_and_end_date(start_date, end_date))
+  }
+
   scope :filter_by_capacity, ->(capacity) { capacity.present? ? where(" capacity >= ?", capacity) : all }
   has_many :schedules
   mount_uploader :photo, PhotoUploader

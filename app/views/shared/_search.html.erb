@@ -1,9 +1,13 @@
 <%= form_tag offices_path, method: :get, remote: true do %>
-    <%= text_field_tag :queryLocation,
-      params[:queryLocation],
-      class: "form-control search-filter",
-      placeholder: "Location"
-    %>
+    <div class="form-group has-search">
+     <span class="fa fa-search form-control-feedback"></span>
+     <%= text_field_tag :queryLocation,
+        params[:queryLocation],
+        class: "form-control search-filter",
+        placeholder: "Location"
+      %>
+    </div>
+
 
     <% if (params[:controller] == "offices" && params[:action] == "index") %>
       <div class="row my-4">
