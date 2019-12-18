@@ -6,9 +6,12 @@ import { initFlatpickr } from '../plugins/flatpickr';
 import { schedule } from '../offices/schedule_choice';
 import { applyFilter } from '../offices/search_filter';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { equipment } from '../offices/equipment_choice';
 
 initMapbox();
 initFlatpickr();
 schedule();
 initAutocomplete();
 applyFilter();
+equipment();
+

@@ -1,6 +1,8 @@
 
 <div class="container mt-5">
+  <% if current_user.avatar %>
   <h1><%= image_tag current_user.avatar, class:"avatar mr-3" %>Welcome <%= current_user.first_name %>,</h1>
+  <% end %>
   <ul class="nav nav-tabs mt-5">
     <li class="nav-item">
       <a class="nav-link active" href="#1a" data-toggle="tab">My bookings</a>

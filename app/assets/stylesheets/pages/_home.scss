@@ -1,14 +1,14 @@
 // Specific CSS for your home-page
 #banner-container {
   background-image: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), asset-url('banner-pic.jpg');
-  height: 681px;
+  height: 92vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom 1px right 0px;
 }
 
 .banner-text {
-  padding: 432px 6px;
+  padding: 22vh 2vh;
   color: white;
 }
 .sign-in-image {
@@ -49,4 +49,15 @@
 .nav-link {
   font-size: 11px;
   font-weight: bold;
+}
+
+.banner-text h1 {
+  font-size: 6vh;
+  line-height: 7vh;
+}
+
+.banner-text h3 {
+  font-size: 3vh;
+  line-height: 5vh;
+  font-weight: lighter;
 }
