@@ -21,7 +21,7 @@
       <% else %>
       <% @bookings.each do |booking| %>
       <%= link_to booking_path(booking) do %>
-      <div class="card-dashboard">
+      <div class="card-dashboard" data-aos="zoom-in">
         <%= cl_image_tag booking.office.photo %>
         <div class="card-dashboard-infos">
           <div class="d-flex justify-content-between align-items-center">
@@ -62,7 +62,7 @@
       <p>No booking request received so far...</p>
       <% else %>
       <% @bookings_received.each do |booking| %>
-      <div class="card-dashboard">
+      <div class="card-dashboard" data-aos="zoom-in">
         <%= cl_image_tag booking.office.photo %>
         <div class="card-dashboard-infos">
           <div class="d-flex">
@@ -91,7 +91,7 @@
       <% else %>
       <% @offices.each do |office| %>
       <%= link_to office_path(office) do %>
-      <div class="card-dashboard">
+      <div class="card-dashboard" data-aos="zoom-in">
         <%= cl_image_tag office.photo %>
         <div class="card-dashboard-infos">
           <div class="d-flex">
