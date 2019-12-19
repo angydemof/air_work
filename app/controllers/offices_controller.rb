@@ -41,7 +41,13 @@ class OfficesController < ApplicationController
   def create
     @office = Office.new(set_office_params)
     @office.user = current_user
+
     if @office.save
+      params[:office][:schedule_ids].each do |schedule|
+        OfficeSchedule.create(schedule_id: schedule, office: @office)
+      end
+      @office.save
+
       redirect_to office_path(@office)
     else
       render :new
@@ -95,6 +101,6 @@ class OfficesController < ApplicationController
     params.require(:office).permit(:name, :description, :address, :capacity,
                                    :size, :photo, :office_type, :wifi, :coffee_machine,
                                    :smoking_area, :pets_allowed, :printer,
-                                   :kitchen, :terrace, :price_cents, :price, :heater_ac, :adaptors)
+                                   :kitchen, :terrace, :price_cents, :price, :heater_ac, :adaptors, :schedule_ids)
   end
 end

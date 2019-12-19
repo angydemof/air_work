@@ -19,6 +19,6 @@ class Office < ApplicationRecord
   }
 
   scope :filter_by_capacity, ->(capacity) { capacity.present? ? where(" capacity >= ?", capacity) : all }
-  has_many :schedules
+  has_many :office_schedules
   mount_uploader :photo, PhotoUploader
 end
