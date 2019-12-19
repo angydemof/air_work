@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
+
   resources :offices do
     resources :bookings, only: %i[new create]
   end

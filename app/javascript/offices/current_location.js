@@ -3,8 +3,11 @@ import mapboxgl from 'mapbox-gl';
 const currentLocation = () => {
 
   const onSelect = document.getElementById('ask-location');
+  var form = document.querySelector('form');
 
-  onSelect.addEventListener('click', (event) => {
+  if (onSelect) {
+
+    onSelect.addEventListener('click', (event) => {
     var options = {
       enableHighAccuracy: true,
       timeout: 5000,
@@ -15,22 +18,23 @@ const currentLocation = () => {
       var crd = pos.coords;
       console.log('Your current position is:');
 
-      console.log(`Latitude : ${crd.latitude}`);
-      console.log(`Longitude: ${crd.longitude}`);
-      console.log(`More or less ${crd.accuracy} meters.`);
+      //console.log(`Latitude : ${crd.latitude}`);
+      //console.log(`Longitude: ${crd.longitude}`);
+      //console.log(`More or less ${crd.accuracy} meters.`);
 
       const currentLocation = document.getElementById('current_location');
       currentLocation.value = `${crd.latitude} ${crd.longitude}`;
-
-      console.log(currentLocation);
+      const searchBar = document.getElementById('office_address');
+      searchBar.value = "Your current location"
+      Rails.fire(form, 'submit');
     }
 
     function error(err) {
-      console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
-    navigator.geolocation.getCurrentPosition(success, error, options);
-  });
-
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      }
+      navigator.geolocation.getCurrentPosition(success, error, options);
+    });
+  }
 }
 
 
