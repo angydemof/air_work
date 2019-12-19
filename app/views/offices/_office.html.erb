@@ -10,8 +10,27 @@
     <div class="card-trip " data-aos="zoom-in">
       <%= cl_image_tag office.photo %>
       <div class="card-trip-infos">
-        <div>
-          <h2><%= office.name.truncate_words(4) %></h2><% if office.capacity != nil %><p style="font-size: 20px;"><strong><%= office.capacity %></strong><i class="fas fa-user"></i></p>
+          <h2><%= office.name.truncate_words(4) %></h2>
+          <% if office.capacity != nil %>
+          <div class="d-flex justify-content-between align-items-center">
+            <p style="font-size: 16px;">
+              <strong>
+                <%= office.capacity %>
+              </strong>
+              <i class="fas fa-user"></i>
+            </p>
+            <p>
+              <strong>
+              <%= office.address.split.last(2).join(' ') %>
+              <i class="fas fa-map-marker-alt"></i>
+              </strong>
+            </p>
+            <strong>
+            <p class="card-trip-pricing">
+              <%= humanized_money_with_symbol office.price %>/day
+            </p>
+            </strong>
+          </div>
         <% end %>
         </div>
         <strong><p class="card-trip-pricing"><%= humanized_money_with_symbol office.price %>/day</p></strong>

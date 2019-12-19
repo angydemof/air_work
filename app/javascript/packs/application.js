@@ -9,6 +9,27 @@ import { applyFilter } from '../offices/search_filter';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { equipment } from '../offices/equipment_choice';
 import { previewImageOnFileSelect } from '../components/photo_preview';
+import { initSweetalert } from '../plugins/init_sweetalert';
+
+initSweetalert('#sweet-alert-demo', {
+  title: "Delete",
+  text: "Are you sure you wish to delete?",
+  icon: "warning",
+}, (value) => {
+  if (value) {
+    const link = document.querySelector('#delete-link');
+    const card = document.querySelector(".card-dashboard")
+
+    card.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log("card");
+    })
+
+    console.log(link);
+    link.click();
+  }
+});
+
 
 initMapbox();
 initFlatpickr();
