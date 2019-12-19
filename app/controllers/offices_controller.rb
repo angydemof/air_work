@@ -41,8 +41,6 @@ class OfficesController < ApplicationController
   def create
     @office = Office.new(set_office_params)
     @office.user = current_user
-    schedules = []
-
 
     if @office.save
       params[:office][:schedule_ids].each do |schedule|
