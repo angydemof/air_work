@@ -15,7 +15,6 @@
 
   <legend class="col-form-label pt-0 pb-0">Available days</legend>
 
-  <input type="hidden" name="office[schedule_ids][]" value="">
   <div class="schedule-choices">
     <% Schedule.all.each do |schedule| %>
 
@@ -112,7 +111,7 @@
 
 </div>
 <%= b.input :photo, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'btn-ghost-inverted'}, label: 'Upload a photo' %>
-<%= image_tag "", width: 300, class: "d-none", id: "photo-preview" %>
+<%= cl_image_tag "", width: 300, class: "d-none", id: "photo-preview" %>
 <%= b.input :photo_cache, as: :hidden %>
 
 

@@ -15,7 +15,9 @@
         <% end %>
         </div>
         <strong><p class="card-trip-pricing"><%= humanized_money_with_symbol office.price %>/day</p></strong>
+        <% if office.user.avatar %>
         <%= image_tag office.user.avatar, class: "card-trip-user avatar-bordered" %>
+        <% end %>
       </div>
     </div>
   <% end %>
