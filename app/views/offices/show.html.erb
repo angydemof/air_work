@@ -140,5 +140,11 @@
     </div>
   </div>
   <% end %>
+  <% schedules = [] %>
+  <% @office.office_schedules.each do |office_schedule| %>
+  <% schedules << office_schedule.schedule.name %>
+  <% end %>
+
+  <div class="unavailable-dates" data-unavailable= "<%= schedules %>" ></div>
 </div>
 </div>

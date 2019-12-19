@@ -11,6 +11,12 @@
 
   <h3 class="my-4 font-weight-bold">Popular cities for coworking </h3>
 
+  <%= link_to offices_path(queryLocation: "Madrid") do %>
+    <div data-aos="zoom-in" class="card-city amsterdam" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dlo5xbrsn/image/upload/v1576603141/madrid_nlqmk5.jpg)">
+      Madrid
+    </div>
+  <% end %>
+
   <%= link_to offices_path(queryLocation: "Barcelona") do %>
     <div class="card-city barcelona" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dlo5xbrsn/image/upload/v1576596631/barcelona_vwri9g.jpg)">
       Barcelona
@@ -29,11 +35,6 @@
     </div>
   <% end %>
 
-  <%= link_to offices_path(queryLocation: "Madrid") do %>
-    <div data-aos="zoom-in" class="card-city amsterdam" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dlo5xbrsn/image/upload/v1576603141/madrid_nlqmk5.jpg)">
-      Madrid
-    </div>
-  <% end %>
 
   <%= link_to offices_path(queryLocation: "Paris") do %>
     <div data-aos="zoom-in" class="card-city paris" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dlo5xbrsn/image/upload/v1576596550/paris_on5aay.jpg)">
