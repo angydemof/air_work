@@ -1,7 +1,10 @@
 
 <div class="container mt-5">
   <% if current_user.avatar %>
-  <h1><%= image_tag current_user.avatar, class:"avatar mr-3" %>Welcome <%= current_user.first_name %>,</h1>
+    <h1>
+      <%= image_tag current_user.avatar, class:"avatar mr-3" %>
+      Welcome <%= current_user.first_name %>,
+    </h1>
   <% end %>
   <ul class="nav nav-tabs mt-5">
     <li class="nav-item">
@@ -20,8 +23,8 @@
       <p>No bookings made so far...</p>
       <% else %>
       <% @bookings.each do |booking| %>
-      <div class="card-dashboard" data-aos="zoom-in">
-      <%= link_to booking_path(booking) do %>
+      <div class="card-dashboard">
+        <%= link_to booking_path(booking) do %>
         <%= cl_image_tag booking.office.photo %>
         <div class="card-dashboard-infos">
           <div class="d-flex justify-content-between align-items-center">
@@ -34,7 +37,7 @@
               <p><strong>Booking dates: </strong> <%= booking.start_date %> to <%= booking.end_date %></p>
               <% end %>
             </div>
-      <% end %>
+            <% end %>
             <div class="card-right">
               <i id="sweet-alert-demo" class="fas fa-trash-alt delete"></i>
               <%= link_to "", booking_path(booking), method: :delete, id: "delete-link", class: "d-none" %>
@@ -64,26 +67,26 @@
 
     <div class="tab-pane" id="2a">
       <% if @bookings_received == [] %>
-        <p>No booking request received so far...</p>
+      <p>No booking request received so far...</p>
       <% else %>
-        <% @bookings_received.each do |booking| %>
-        <div class="card-dashboard">
-          <%= cl_image_tag booking.office.photo %>
-          <div class="card-dashboard-infos pb-0">
-              <div class="card-left">
-                <p><strong>Office: </strong><%= booking.office.name.split.first(2).join(' ') %>..</p>
-                <p><strong>Location: </strong><%= booking.office.address.split.last(2).join(' ') %></p>
-                <p><strong>Booking status: </strong><%= booking.status %>  </p>
-              </div>
-              <% if booking.status == "Pending"  %>
-                <div class="d-flex justify-content-end align-self-end pt-2">
-                  <div><%= link_to "<i style='padding-right: 8px;'class='fas fa-check-circle accept'></i>".html_safe, accept_booking_path(booking) %></div>
-                  <div><%= link_to "<i class='fas fa-times-circle reject'></i>".html_safe, reject_booking_path(booking), class: "reject-icon" %></div>
-                </div>
-                <% end %>
+      <% @bookings_received.each do |booking| %>
+      <div class="card-dashboard">
+        <%= cl_image_tag booking.office.photo %>
+        <div class="card-dashboard-infos pb-0">
+          <div class="card-left">
+            <p><strong>Office: </strong><%= booking.office.name.split.first(2).join(' ') %>..</p>
+            <p><strong>Location: </strong><%= booking.office.address.split.last(2).join(' ') %></p>
+            <p><strong>Booking status: </strong><%= booking.status %>  </p>
           </div>
+          <% if booking.status == "Pending"  %>
+          <div class="d-flex justify-content-end align-self-end pt-2">
+            <div><%= link_to "<i style='padding-right: 8px;'class='fas fa-check-circle accept'></i>".html_safe, accept_booking_path(booking) %></div>
+            <div><%= link_to "<i class='fas fa-times-circle reject'></i>".html_safe, reject_booking_path(booking), class: "reject-icon" %></div>
+          </div>
+          <% end %>
         </div>
-        <% end %>
+      </div>
+      <% end %>
       <% end %>
     </div>
 
@@ -93,21 +96,21 @@
       <% else %>
       <% @offices.each do |office| %>
       <%= link_to office_path(office) do %>
-      <div class="card-dashboard" data-aos="zoom-in">
+      <div class="card-dashboard" >
         <%= cl_image_tag office.photo %>
         <div class="card-dashboard-infos">
-            <div class="card-left">
-              <p><strong>Office: </strong><%= office.name.split.first(2).join(' ') %>..</p>
-              <p><strong>Location: </strong><%= office.address.split.last(2).join(' ') %></p>
-            </div>
-            <div class="card-right d-flex justify-content-end align-self-end">
-              <%= link_to edit_office_path(office) do %>
-              <i class="fas fa-pencil-alt edit"></i>
-              <% end %>
-              <%= link_to office_path(office), method: :delete, data: { confirm: "Are you sure you wish to delete?" } do %>
-              <i class="fas fa-trash-alt delete"></i>
-              <% end %>
-            </div>
+          <div class="card-left">
+            <p><strong>Office: </strong><%= office.name.split.first(2).join(' ') %>..</p>
+            <p><strong>Location: </strong><%= office.address.split.last(2).join(' ') %></p>
+          </div>
+          <div class="card-right d-flex justify-content-end align-self-end">
+            <%= link_to edit_office_path(office) do %>
+            <i class="fas fa-pencil-alt edit"></i>
+            <% end %>
+            <%= link_to office_path(office), method: :delete, data: { confirm: "Are you sure you wish to delete?" } do %>
+            <i class="fas fa-trash-alt delete"></i>
+            <% end %>
+          </div>
         </div>
       </div>
       <% end %>
