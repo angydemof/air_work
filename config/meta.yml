@@ -1,4 +1,4 @@
 meta_product_name: "Air Work"
 meta_title: "AirWork - The Office You Dont Want To Leave"
 meta_description: "AirWork is easy, safe and quick, enabling us to book/rent affordable workspace wherever and whenever we want."
-meta_image: "banner-pic.jpg" # should exist in `app/assets/images/`
+meta_image: "og-image.jpeg" # should exist in `app/assets/images/`
