@@ -1,5 +1,7 @@
 <div class="container">
 <div class="show-page">
+  <div class="link-show" align="left"><%= link_to "< Back to offices", offices_path %>
+  </div>
   <div class="show">
     <%= cl_image_tag @office.photo %>
     <%= image_tag @office.user.avatar, class: "show-avatar" %>
@@ -120,8 +122,7 @@
     </div>
     <% end %>
   </div>
-</div>
-<br>
+  <br>
 <div
   id="map"
   style="width: 100%;
@@ -133,9 +134,11 @@
 
   <br>
   <% if current_user != @office.user %>
+  <div class="container-bottom">
     <div class="show-flatpickr">
       <%= render "bookings/new", office: @office, booking: @booking%>
     </div>
+  </div>
   <% end %>
   <% schedules = [] %>
   <% @office.office_schedules.each do |office_schedule| %>
@@ -143,4 +146,5 @@
   <% end %>
 
   <div class="unavailable-dates" data-unavailable= "<%= schedules %>" ></div>
+</div>
 </div>
