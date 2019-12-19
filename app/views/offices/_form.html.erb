@@ -111,7 +111,7 @@
 
 </div>
 <%= b.input :photo, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'btn-ghost-inverted'}, label: 'Upload a photo' %>
-<%= image_tag "", width: 300, class: "d-none", id: "photo-preview" %>
+<%= cl_image_tag "", width: 300, class: "d-none", id: "photo-preview" %>
 <%= b.input :photo_cache, as: :hidden %>
 
 
