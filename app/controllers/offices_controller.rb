@@ -4,10 +4,19 @@ class OfficesController < ApplicationController
   # before_action :search_params, only: :index
 
   def index
-    @offices = Office.filter_by_location(location)
-                     .filter_by_date(start_date, end_date)
-                     .filter_by_capacity(capacity)
-                     .order(price_cents: price.to_i == 2 ? :desc : :asc)
+    if latitude.present? && longitude.present?
+      @offices = Office.near([latitude, longitude], 10)
+                       .filter_by_date(start_date, end_date)
+                       .filter_by_capacity(capacity)
+                       .order(price_cents: price.to_i == 2 ? :desc : :asc)
+
+    else
+      @offices = Office.filter_by_location(location)
+                       .filter_by_date(start_date, end_date)
+                       .filter_by_capacity(capacity)
+                       .order(price_cents: price.to_i == 2 ? :desc : :asc)
+    end
+
     @offices.geocoded
 
     respond_to do |format|
@@ -79,6 +88,20 @@ class OfficesController < ApplicationController
 
   def location
     params[:queryLocation]
+  end
+
+  def current_location
+    if location == "Your current location"
+      params[:queryCurrentLocation].split(" ") if params[:queryCurrentLocation].present?
+    end
+  end
+
+  def latitude
+    current_location[0].to_f if current_location
+  end
+
+  def longitude
+    current_location[1].to_f if current_location
   end
 
   def start_date

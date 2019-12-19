@@ -5,12 +5,17 @@
          <%= text_field_tag :queryLocation,
             params[:queryLocation],
             class: "form-control search-filter",
-            placeholder: "Location"
+            placeholder: "Location",
+            id: "office_address"
           %>
         </div>
-        <div class="mx-2" id="current-location">
+        <div class="mx-2" id="ask-location">
           <h2 style="font-size: 26px; color: #11BF98;"><i class="far fa-compass"></i></h2>
         </div>
+        <%= hidden_field_tag :queryCurrentLocation,
+              params[:queryCurrentLocation],
+              id: "current_location"
+            %>
 
     </div>
 
@@ -34,7 +39,7 @@
 
         <div class="col-4">
           <%= select_tag :queryPrice,
-              options_for_select([["Price - Low to High", 1], ["Price - High to Low", 2]]),
+              options_for_select([["Low to High", 1], ["High to Low", 2]]),
               { class: "form-control search-filter", prompt: "Sort by price"} %>
 
         </div>
