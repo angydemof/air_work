@@ -2,7 +2,7 @@
   overflow: hidden;
   background: white;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(17, 191, 152, 0.2);
+  box-shadow: 0 0 10px rgba(189, 195, 199, 1);
   margin-top: 15px;
 }
 
@@ -29,9 +29,6 @@
 
 .card-trip .card-trip-infos {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   position: relative;
   height: 100px;
 
