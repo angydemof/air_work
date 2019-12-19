@@ -52,8 +52,12 @@
 }
 
 .nav-link {
-  font-size: 11px;
+  font-size: 18px;
   font-weight: bold;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: rgba(17, 191, 152, 0.08);
 }
 
 .banner-text h1 {

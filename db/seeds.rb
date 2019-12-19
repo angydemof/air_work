@@ -28,7 +28,7 @@ office1 = Office.new(
     user: user1,
     remote_photo_url: 'https://www.washingtonian.com/wp-content/uploads/2019/11/Copy-of-Bethesda_001-1-1500x1000.jpg'
   )
-Booking.create(office: office1, user: user2, status: 'closed', start_date: "02-12-2019", end_date: "05-12-2019")
+Booking.create(office: office1, user: user2, status: 'Closed', start_date: "02-12-2019", end_date: "05-12-2019")
 
 
 office1.save!
