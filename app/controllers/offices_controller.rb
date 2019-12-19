@@ -5,6 +5,7 @@ class OfficesController < ApplicationController
 
   def index
     @offices = Office.filter_by_location(location)
+                     .filter_by_current_location(current_location)
                      .filter_by_date(start_date, end_date)
                      .filter_by_capacity(capacity)
                      .order(price_cents: price.to_i == 2 ? :desc : :asc)
@@ -73,6 +74,22 @@ class OfficesController < ApplicationController
 
   def location
     params[:queryLocation]
+  end
+
+  def current_location
+
+     p "current_location: #{params[:queryCurrentLocation]}"
+    params[:queryCurrentLocation].split(" ") if params[:queryCurrentLocation].present?
+
+
+  end
+
+  def latitude
+    current_location[0].to_f if current_location
+  end
+
+  def longitude
+    current_location[1].to_f if current_location
   end
 
   def start_date

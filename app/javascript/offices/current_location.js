@@ -2,7 +2,7 @@ import mapboxgl from 'mapbox-gl';
 
 const currentLocation = () => {
 
-  const onSelect = document.getElementById('current-location');
+  const onSelect = document.getElementById('ask-location');
 
   onSelect.addEventListener('click', (event) => {
     var options = {
@@ -19,9 +19,10 @@ const currentLocation = () => {
       console.log(`Longitude: ${crd.longitude}`);
       console.log(`More or less ${crd.accuracy} meters.`);
 
-      const results = Geocoder.search([48.856614, 2.3522219])
-      console.log(`Address : ${results.first.address}`);
+      const currentLocation = document.getElementById('current_location');
+      currentLocation.value = `${crd.latitude} ${crd.longitude}`;
 
+      console.log(currentLocation);
     }
 
     function error(err) {
