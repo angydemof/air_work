@@ -20,8 +20,8 @@
       <p>No bookings made so far...</p>
       <% else %>
       <% @bookings.each do |booking| %>
-      <%= link_to booking_path(booking) do %>
       <div class="card-dashboard" data-aos="zoom-in">
+      <%= link_to booking_path(booking) do %>
         <%= cl_image_tag booking.office.photo %>
         <div class="card-dashboard-infos">
           <div class="d-flex justify-content-between align-items-center">
@@ -34,10 +34,12 @@
               <p><strong>Booking dates: </strong> <%= booking.start_date %> to <%= booking.end_date %></p>
               <% end %>
             </div>
+      <% end %>
             <div class="card-right">
-              <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete? (if less than 48h before your stay, you will not be refunded...)" } do %>
-              <i class="fas fa-trash-alt delete"></i>
-              <% end %>
+              <i id="sweet-alert-demo" class="fas fa-trash-alt delete"></i>
+              <%= link_to "", booking_path(booking), method: :delete, id: "delete-link", class: "d-none" %>
+
+
               <% if booking.status == "Closed" && booking.reviews == [] %>
               <%= link_to '<p>Add review</p>'.html_safe, new_booking_review_path(booking), style: 'color: #11BF98; font-weight: bold' %>
               <% elsif booking.status == "Closed" && booking.reviews != [] %>
@@ -53,7 +55,6 @@
           </div>
         </div>
       </div>
-      <% end %>
       <% end %>
       <% end %>
       <%= link_to offices_path do %>
